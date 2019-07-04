@@ -1,6 +1,8 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import authService from '../../services/AuthService'
+import { Redirect } from 'react-router-dom';
+import authService from '../../services/AuthService';
+import {withAuthConsumer} from '../../contexts/AuthStore'
+
 
 
 const EMAIL_PATTERN = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -112,7 +114,7 @@ class Login extends React.Component{
                 </form>
               </div>
               <div className="col-6">
-                <button className="btn btn-primary" form="register-form" type="submit" disabled={!this.isValid()}> Create Account</button>
+                <button className="btn btn-primary" form="register-form" type="submit" disabled={!this.isValid()}>Log in</button>
               </div>
             </div>
           </div>
@@ -120,5 +122,5 @@ class Login extends React.Component{
       }
 }
 
-export default Login 
+export default withAuthConsumer(Login) 
 

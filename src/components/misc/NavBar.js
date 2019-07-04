@@ -1,0 +1,30 @@
+import React, { Fragment } from 'react';
+import authService from '../../services/AuthService';
+import { NavLink } from 'react-router-dom'
+
+
+class NavBar extends React.Component{
+  handleLogout=() => {
+    authService.logout()
+      .then(() => this.props.onUserChange(null))
+  } 
+
+  render(){
+    return(
+      <Fragment>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-bottom">
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div className="navbar-nav">
+            <NavLink className="nav-item nav-link active" href="#"><i className="fa fa-home"></i></NavLink>
+            <NavLink className="nav-item nav-link active" href="#"><i className="fa fa-user"></i></NavLink>
+            <i className="fa fa-sign-out btn-logout nav-item nav-link active" onClick={this.handleLogout}></i>
+          </div>
+        </div>
+      </nav>
+      </Fragment>
+  )
+  }
+    
+}
+
+export default NavBar

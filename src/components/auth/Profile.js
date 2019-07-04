@@ -1,7 +1,8 @@
 import React from 'react'
-import { Redirect } from 'react-router-dom';
-
+// import { Redirect } from 'react-router-dom';
+import {withAuthConsumer} from '../../contexts/AuthStore'
 import authService from '../../services/AuthService'
+import NavBar from '../misc/NavBar';
 
 
 const validations = {
@@ -92,10 +93,11 @@ class Profile extends React.Component {
       .some(attr => this.state.errors[attr])
   }
 
+
   componentDidMount() {
     authService.getProfile()
       .then(
-          (user) => this.setState({ user: {...this.state.user, ...user} }),
+          (user) => this.setState({ user: {...this.state, ...user} }),
           (error) => console.error(error)
         )
   }
@@ -109,6 +111,11 @@ class Profile extends React.Component {
           <div className="col-6">
             <h3>Profile</h3>
             <form id="profile-form" className="mt-4" onSubmit={this.handleSubmit}>
+            <div className="form-group">
+                <label>Username</label>
+                <input type='text' className={`form-control ${touch.name && errors.name ? 'is-invalid' : ''}`} name="name" onChange={this.handleChange} onBlur={this.handleBlur} value={user.name} />
+                <div className="invalid-feedback">{ errors.name }</div>
+              </div>
             <div className="form-group">
                 <label>City</label>
                 <input type='text' className={`form-control ${touch.city && errors.city ? 'is-invalid' : ''}`} name="city" onChange={this.handleChange} onBlur={this.handleBlur} value={user.city} />
@@ -134,7 +141,6 @@ class Profile extends React.Component {
             <label htmlFor="avatar" className="avatar"><img src={user.avatar ? URL.createObjectURL(user.avatar) : user.avatarURL} className="rounded mb-3" alt="Cinque Terre" /></label>
             <input type="file" id="avatar"  name="avatar" onChange={this.handleChange} />
             <button className="btn btn-white" form="profile-form" type="submit" disabled={!this.isValid()}>Update profile</button>
-            <p className="mt-5"><small>This user is able to upload a new profile photo, using NodeJS and Multer uploader.</small></p>
           </div>
         </div>
       </div>
@@ -142,4 +148,4 @@ class Profile extends React.Component {
   }
 }
 
-export default Profile
+export default withAuthConsumer(Profile)
