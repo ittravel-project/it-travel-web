@@ -12,3 +12,15 @@ code {
     monospace;
 }
 
+.image-cropper {
+    width: 55%;
+    height: 30%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    border: solid rgb(87, 83, 83);
+}
+.profile-pic {
+  display: inline;
+  margin: 0 auto;
+}

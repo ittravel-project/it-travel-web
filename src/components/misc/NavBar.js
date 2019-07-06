@@ -15,8 +15,8 @@ class NavBar extends React.Component{
       <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-bottom">
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <NavLink className="nav-item nav-link active" href="#"><i className="fa fa-home"></i></NavLink>
-            <NavLink className="nav-item nav-link active" href="#"><i className="fa fa-user"></i></NavLink>
+            <NavLink className="nav-item nav-link active" to="/home"><i className="fa fa-home"></i></NavLink>
+            <NavLink   className="nav-item nav-link active" to="/profile"><i className="fa fa-user"></i></NavLink>
             <i className="fa fa-sign-out btn-logout nav-item nav-link active" onClick={this.handleLogout}></i>
           </div>
         </div>

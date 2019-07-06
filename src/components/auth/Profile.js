@@ -107,42 +107,62 @@ class Profile extends React.Component {
 
     return (
       <div className="box mx-auto">
-        <div className="row">
-          <div className="col-6">
-            <h3>Profile</h3>
-            <form id="profile-form" className="mt-4" onSubmit={this.handleSubmit}>
-            <div className="form-group">
-                <label>Username</label>
-                <input type='text' className={`form-control ${touch.name && errors.name ? 'is-invalid' : ''}`} name="name" onChange={this.handleChange} onBlur={this.handleBlur} value={user.name} />
-                <div className="invalid-feedback">{ errors.name }</div>
-              </div>
-            <div className="form-group">
-                <label>City</label>
-                <input type='text' className={`form-control ${touch.city && errors.city ? 'is-invalid' : ''}`} name="city" onChange={this.handleChange} onBlur={this.handleBlur} value={user.city} />
-                <div className="invalid-feedback">{ errors.city }</div>
-              </div>
-              <div className="form-group">
-                <label>Description</label>
-                <input type='text' className={`form-control ${touch.description && errors.description ? 'is-invalid' : ''}`} name="description" onChange={this.handleChange} onBlur={this.handleBlur} value={user.description} />
-                <div className="invalid-feedback">{ errors.description }</div>
-              </div>
-              <div className="form-group">
-                <label>Email</label>
-                <input type="email" name="email" className="form-control" value={user.email} disabled/>
-              </div>
-              <div className="form-group">
-                <label>Password</label>
-                <input type="password" name="password" className={`form-control ${touch.password && errors.password ? 'is-invalid' : ''}`} onChange={this.handleChange} onBlur={this.handleBlur} value={user.password} />
-                <div className="invalid-feedback">{ errors.password }</div>
-              </div>
-            </form>
+       <div className='Home-image'>
+          <img src='https://img.jakpost.net/c/2018/01/11/2018_01_11_38768_1515668901._large.jpg' width='420px' height='200px'/>
+        </div>
+        <div className="col-6 pt-4 ">
+            <div class="image-cropper">
+              <label htmlFor="avatar" className="avatar"><img src={user.avatar ? URL.createObjectURL(user.avatar) : user.avatarURL} className="rounded mb-3 profile-pic" alt="Cinque Terre" /></label>
+            </div>
+          <div>
+            <h1>Username</h1>
+            <p>{user.name}</p>
           </div>
-          <div className="col-6 pt-4">
-            <label htmlFor="avatar" className="avatar"><img src={user.avatar ? URL.createObjectURL(user.avatar) : user.avatarURL} className="rounded mb-3" alt="Cinque Terre" /></label>
-            <input type="file" id="avatar"  name="avatar" onChange={this.handleChange} />
-            <button className="btn btn-white" form="profile-form" type="submit" disabled={!this.isValid()}>Update profile</button>
+          <div>
+            <h1>City</h1>
+            <p>{user.city}</p>
+          </div>
+          <div>
+            <h1>Description</h1>
+            <p>{user.description}</p>
           </div>
         </div>
+        <div>
+            <h1>Activity Feed</h1>
+            <div className="card">
+              <img className="card-img-top" src="..." alt="Card image cap" />
+              <div className="card-body">
+                <h5 className="card-title">Card title</h5>
+                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" className="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+            <div className="card">
+              <img className="card-img-top" src="..." alt="Card image cap" />
+              <div className="card-body">
+                <h5 className="card-title">Card title</h5>
+                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" className="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+            <div className="card">
+              <img className="card-img-top" src="..." alt="Card image cap" />
+              <div className="card-body">
+                <h5 className="card-title">Card title</h5>
+                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" className="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+            <div className="card">
+              <img className="card-img-top" src="..." alt="Card image cap" />
+              <div className="card-body">
+                <h5 className="card-title">Card title</h5>
+                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" className="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+          <NavBar />
       </div>
     );
   }

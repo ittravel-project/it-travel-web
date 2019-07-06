@@ -92,7 +92,7 @@ class Login extends React.Component{
       render() {
         const { isAuthenticated, errors, user, touch } =  this.state;
         if (isAuthenticated) {
-          return (<Redirect to="/profile" />)
+          return (<Redirect to="/home" />)
         }
     
         return (

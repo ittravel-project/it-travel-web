@@ -3,6 +3,8 @@ import React, { Fragment } from 'react';
 //import authService from '../../services/AuthService';
 //import {withAuthConsumer} from '../../contexts/AuthStore'
 import NavBar from '../misc/NavBar'
+import SearchBar from '../misc/SearchBar'
+import queryString from 'query-string'
 
 class Home extends React.Component {
 
@@ -16,12 +18,7 @@ class Home extends React.Component {
                     <button className="btn-success col-4 p-2"></button>
                     <button className="btn-success col-4 p-2"></button>
                 </div>
-                <form>
-                    <div className="form-group">
-                        <label for="exampleFormControlInput1"></label>
-                        <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Enter name/city...." />
-                    </div>
-                </form>
+                <SearchBar queryString={queryString} />
                 <div className='row'> 
                     <div className='p-4 bg-light border-right rounded'>
                         <div className='row'>
