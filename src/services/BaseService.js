@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const http = axios.create({
- baseURL: 'http://localhost:3001',
- withCredentials: true
+    baseURL: `${process.env.REACT_APP_API_URL}`,
+    withCredentials: true
 })
 
 http.interceptors.response.use(

@@ -44,49 +44,49 @@ class Profile extends React.Component {
     touch: {}
   }
 
-  handleChange = (event) => {
-    const { name, value, files } = event.target;
-    this.setState({
-      user: {
-        ...this.state.user,
-        [name]: files && files[0] ? files[0] : value
-      },
-      errors: {
-        ...this.state.errors,
-        [name]: validations[name] && validations[name](value)
-      }
-    })
-  }
+  // handleChange = (event) => {
+  //   const { name, value, files } = event.target;
+  //   this.setState({
+  //     user: {
+  //       ...this.state.user,
+  //       [name]: files && files[0] ? files[0] : value
+  //     },
+  //     errors: {
+  //       ...this.state.errors,
+  //       [name]: validations[name] && validations[name](value)
+  //     }
+  //   })
+  // }
 
-  handleBlur = (event) => {
-    const { name } = event.target;
-    this.setState({
-      touch: {
-        ...this.state.touch,
-        [name]: true
-      }
-    })
-  }
+  // handleBlur = (event) => {
+  //   const { name } = event.target;
+  //   this.setState({
+  //     touch: {
+  //       ...this.state.touch,
+  //       [name]: true
+  //     }
+  //   })
+  // }
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    if (this.isValid()) {
-      authService.updateProfile(this.state.user)
-        .then(
-          (user) => this.setState({ user: {...this.state.user, ...user} }),
-          (error) => {
-            const { message, errors } = error.response.data;
-            this.setState({
-              errors: {
-                ...this.state.errors,
-                ...errors,
-                email: !errors && message
-              }
-            })
-          }
-        )
-    }
-  }
+  // handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   if (this.isValid()) {
+  //     authService.updateProfile(this.state.user)
+  //       .then(
+  //         (user) => this.setState({ user: {...this.state.user, ...user} }),
+  //         (error) => {
+  //           const { message, errors } = error.response.data;
+  //           this.setState({
+  //             errors: {
+  //               ...this.state.errors,
+  //               ...errors,
+  //               email: !errors && message
+  //             }
+  //           })
+  //         }
+  //       )
+  //   }
+  // }
 
   isValid = () => {
     return !Object.keys(this.state.user)
@@ -108,7 +108,7 @@ class Profile extends React.Component {
     return (
       <div className="box mx-auto">
        <div className='Home-image'>
-          <img src='https://img.jakpost.net/c/2018/01/11/2018_01_11_38768_1515668901._large.jpg' width='420px' height='200px'/>
+          <img src='https://img.jakpost.net/c/2018/01/11/2018_01_11_38768_1515668901._large.jpg' alt="" width='420px' height='200px'/>
         </div>
         <div className="col-6 pt-4 ">
             <div class="image-cropper">

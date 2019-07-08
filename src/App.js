@@ -9,6 +9,7 @@ import Main from './components/misc/Main';
 import ProfileEdit from './components/auth/ProfileEdit';
 import CreatePost from './components/posts/CreatePost';
 import PostsBase from './components/posts/PostBase';
+import CommentBase from './components/comments/CommentBase';
 
 
 
@@ -28,6 +29,7 @@ class App extends React.Component {
           <PrivateRoute exact path='/posts' component={PostsBase} />
           <PrivateRoute exact path='/posts/new' component={CreatePost} />
           <PrivateRoute exact path='/home' component={Home} />
+          <PrivateRoute exact path='/comments' component ={CommentBase} />
         </Switch>
       </main>
       

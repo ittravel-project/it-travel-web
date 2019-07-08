@@ -3,8 +3,7 @@ import { Redirect } from 'react-router-dom';
 import authService from '../../services/AuthService';
 import {withAuthConsumer} from '../../contexts/AuthStore'
 
-
-
+// eslint-disable-next-line 
 const EMAIL_PATTERN = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
 

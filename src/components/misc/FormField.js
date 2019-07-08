@@ -17,7 +17,7 @@ const FormField = (props) => {
 
     const inputAttrs ={
         autoComplete:'off', 
-        className: `form-control $ {validationClassName}`,
+        className: `form-control ${validationClassName}`,
         name,
         value,
         onBlur,
@@ -27,7 +27,6 @@ const FormField = (props) => {
     return (
         <div className='form-group'>
             <label>{label}</label>
-            
             
             {isInput && <input type='file'></input>}
   
@@ -40,9 +39,14 @@ const FormField = (props) => {
                     Looks good!
                 </div>
             )}
+
+            {touch && error && (
+                <div className="invalid-feedback">
+                    Invalid field
+                </div>
+            )}
         </div>
     ) 
 }
-
 
 export default FormField

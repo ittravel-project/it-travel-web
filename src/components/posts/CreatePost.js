@@ -6,21 +6,23 @@ import FormField from '../misc/FormField';
 import PostService from '../../services/PostService'
 
 const validators={
-    title: value => value.length > 3
+    title: value => value.length > 3,
+    attachment: value => value.length > 10,
 }
 
 class CreatePost extends React.Component {
-   state={
-       data:{
-           title:'',
-           message:'',
-           attachment:''
-       },
-       errors:{
-           title:true
-       },
-       goToPosts:false,
-       touch:{}
+    state={
+        data:{
+            title:'',
+            message:'',
+            attachment:''
+        },
+        errors:{
+           title: true,
+           attachment: true
+        },
+        goToPosts:false,
+        touch:{}
    }
    
     handleChange = (event) => {
@@ -66,7 +68,7 @@ class CreatePost extends React.Component {
     }
 
     getValidationsClassName= (attr)=>{
-        const {errors,touch}= this.state
+        const {errors, touch}= this.state
 
         if(!touch[attr]){
             return ''
@@ -81,15 +83,16 @@ class CreatePost extends React.Component {
         event.preventDefault()
 
         PostService.createPost(this.state.data).then(
-            ()=>{
+            () => {
                 this.setState({
                     goToPosts: true
                 })
             },
             error => {
-                const serverErrors= Object.keys(error.response.data.errors).reduce((acc,el)=>(
-                    {...acc,[el]: true }
+                const serverErrors = Object.keys(error.response.data.errors).reduce((acc, el) => (
+                    {...acc, [el]: true }
                 ), {})
+                
                 this.setState({
                     errors:{
                         ...this.state.errors,
@@ -108,7 +111,8 @@ class CreatePost extends React.Component {
         const hasErrors=Object.values(errors).some(el => el === true)
         
         return (
-            <div className='CreatePost'>
+            <article className='CreatePost'>
+
                 <form onSubmit={this.handleSubmit}>
                     <FormField
                     label='Title'
@@ -127,10 +131,10 @@ class CreatePost extends React.Component {
                     value={data.attachment}
                     onChange={this.handleChange}
                     touch={touch.attachment}
+                    error={errors.title}
+                    inputType='text'
                     validationsClassName={this.getValidationsClassName('attachment')}
-                    inputType='file'
-                    isCreate
-                    isInput
+                
                     />
  
                     <SimpleMDE
@@ -144,7 +148,7 @@ class CreatePost extends React.Component {
                     className={`btn ${hasErrors ? 'btn-danger' : 'btn-success'}`}
                     disabled={hasErrors}>Submit</button>
                 </form>
-            </div>
+            </article>
             
         )
     }

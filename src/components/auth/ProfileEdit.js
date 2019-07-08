@@ -144,6 +144,8 @@ class ProfileEdit extends React.Component {
             <button className="btn btn-white" form="profile-form" type="submit" disabled={!this.isValid()}>Update profile</button>
           </div>
         </div>
+
+        <NavBar />
       </div>
     );
   }
