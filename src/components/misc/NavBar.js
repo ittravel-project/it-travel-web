@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react';
-import authService from '../../services/AuthService';
+import AuthService from '../../services/AuthService';
 import { NavLink } from 'react-router-dom'
+import { withAuthConsumer } from '../../contexts/AuthStore';
 
 
 class NavBar extends React.Component{
   handleLogout=() => {
-    authService.logout()
+    AuthService.logout()
       .then(() => this.props.onUserChange(null))
   } 
 
@@ -27,4 +28,4 @@ class NavBar extends React.Component{
     
 }
 
-export default NavBar
+export default withAuthConsumer(NavBar)

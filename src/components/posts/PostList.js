@@ -1,5 +1,5 @@
 import React from 'react'
-import PostsService from '../../services/PostService'
+import PostService from '../../services/PostService'
 import Post from './Post';
 
 class PostsList extends React.Component {
@@ -8,7 +8,7 @@ class PostsList extends React.Component {
  }
 
  fetchPosts = () => {
-   PostsService.getPosts().then(
+   PostService.getPosts().then(
      response => {
        this.setState({ posts: response.data })
      }
@@ -20,7 +20,7 @@ class PostsList extends React.Component {
  }
 
  deletePost = (postId) => {
-   PostsService.deletePost(postId).then(
+   PostService.deletePost(postId).then(
      response => {
        this.fetchPosts()
      }

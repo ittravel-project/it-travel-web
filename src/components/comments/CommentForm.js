@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 
-export default class CommentForm extends Component {
-    state = 
-    {
-      loading: false,
+export default class CommentForm extends Component {  
+  constructor(props) {
+    super(props);
+
+    this.state = {
       error: "",
 
       comment: {
@@ -11,10 +12,11 @@ export default class CommentForm extends Component {
         message: ""
       }
     };
+       this.handleFieldChange = this.handleFieldChange.bind(this);
 
-//    handleFieldChange = handleFieldChange.bind(this);
-//     onSubmit = onSubmit.bind(this);
-//   }
+        this.onSubmit = this.onSubmit.bind(this);
+
+  }
 
   handleFieldChange = event => {
     const { value, name } = event.target;
@@ -31,6 +33,41 @@ export default class CommentForm extends Component {
  
   onSubmit(e) {
     e.preventDefault();
+
+    if (!this.isFormValid()) {
+      this.setState({ error: "All fields are required." });
+      return;
+    }
+ 
+    this.setState({ error: "" });
+ 
+    let { comment } = this.state;
+    fetch("http://localhost:3000/comments", {
+      method: "post",
+      body: JSON.stringify(comment)
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.error) {
+          this.setState({ error: res.error });
+        } else {
+          comment.time = res.time;
+          this.props.addComment(comment);
+ 
+          this.setState({
+            comment: { ...comment, message: "" }
+          });
+        }
+      })
+      .catch(err => {
+        this.setState({
+          error: "Something went wrong while submitting form.",
+        });
+      });
+  }
+ 
+  isFormValid() {
+    return this.state.comment.name !== "" && this.state.comment.message !== "";
   }
 
   renderError() {
