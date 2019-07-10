@@ -1,15 +1,16 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
+import { Link } from 'react-router-dom'
 
 const Post = ({ post, onDeletePost }) => {
  const handleDelete = () => onDeletePost(post.id)
 
  return (
    <div className="card mb-4">
-     <img src={post.attachment} className="card-img-top" alt="post" />
+     <img style={{ maxWidth: 100, maxHeight: 100}} width='25%' src={post.attachment} className="card-img-top" alt="post" />
 
      <div className="card-body">
-        <h5 className="card-title">{post.title}</h5>
+        <Link className="card-title" to={`/posts/${post.id}/comments`}>{post.title}</Link>
         <ReactMarkdown
           source={post.message}
           escapeHtml={false}

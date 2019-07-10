@@ -29,7 +29,7 @@ class App extends React.Component {
           <PrivateRoute exact path='/posts' component={PostsBase} />
           <PrivateRoute exact path='/posts/new' component={CreatePost} />
           <PrivateRoute exact path='/home' component={Home} />
-          <PrivateRoute exact path='/comments' component ={CommentBase} />
+          <PrivateRoute exact path='/posts/:postId/comments' component ={CommentBase} />
         </Switch>
       </main>
       

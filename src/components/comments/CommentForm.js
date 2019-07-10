@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import CommentService from '../../services/CommentService'
 
 export default class CommentForm extends Component {  
   constructor(props) {
@@ -9,7 +10,7 @@ export default class CommentForm extends Component {
 
       comment: {
         name: "",
-        message: ""
+        textg: ""
       }
     };
        this.handleFieldChange = this.handleFieldChange.bind(this);
@@ -30,6 +31,7 @@ export default class CommentForm extends Component {
     });
   };
 
+
  
   onSubmit(e) {
     e.preventDefault();
@@ -42,11 +44,9 @@ export default class CommentForm extends Component {
     this.setState({ error: "" });
  
     let { comment } = this.state;
-    fetch("http://localhost:3000/comments", {
-      method: "post",
-      body: JSON.stringify(comment)
-    })
-      .then(res => res.json())
+
+    CommentService.createComment(this.props.match.params.postId ,comment)
+      .then(res => res.data)
       .then(res => {
         if (res.error) {
           this.setState({ error: res.error });
@@ -55,11 +55,12 @@ export default class CommentForm extends Component {
           this.props.addComment(comment);
  
           this.setState({
-            comment: { ...comment, message: "" }
+            comment: { ...comment, text: "" }
           });
         }
       })
       .catch(err => {
+        console.log(err)
         this.setState({
           error: "Something went wrong while submitting form.",
         });
@@ -67,7 +68,7 @@ export default class CommentForm extends Component {
   }
  
   isFormValid() {
-    return this.state.comment.name !== "" && this.state.comment.message !== "";
+    return this.state.comment.name !== "" && this.state.comment.text !== "";
   }
 
   renderError() {
@@ -94,10 +95,10 @@ export default class CommentForm extends Component {
           <div className="form-group">
             <textarea
               onChange={this.handleFieldChange}
-              value={this.state.comment.message}
+              value={this.state.comment.text}
               className="form-control"
               placeholder="🤬 Your Comment"
-              name="message"
+              name="text"
               rows="5"
             />
           </div>

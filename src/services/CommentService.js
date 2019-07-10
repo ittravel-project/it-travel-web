@@ -1,9 +1,10 @@
 import http from './BaseService'
 
-const deleteComment = id => http.delete(`/comments/${id}`)
-const createComment = comment => http.post('/comments', comment)
+const getComments = (postId) => http.get(`/posts/${postId}/comments`)
+const deleteComment = id => http.delete(`/posts/:postId/comments/${id}`)
+const createComment = (postId, comment) => http.post(`/posts/${postId}/comments`, comment)
 
 
 
-export default {deleteComment, createComment}
+export default {getComments, deleteComment, createComment}
 

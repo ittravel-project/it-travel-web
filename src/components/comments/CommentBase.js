@@ -1,6 +1,8 @@
 import React from 'react'
 import CommentForm from './CommentForm';
 import CommentList from './CommentList';
+import CommentService from '../../services/CommentService';
+
 
 class CommentBase extends React.Component{
     constructor(props){
@@ -19,20 +21,17 @@ class CommentBase extends React.Component{
         });
     }
        
-
+    fetchPosts = () => {
+        CommentService.getComments(this.props.match.params.postId).then(
+            response => {
+            this.setState({ comments: response.data })
+            }
+        )
+    }
+    
     componentDidMount() {
-        fetch("http://localhost:3000")
-          .then(res => res.json())
-          .then(res => {
-            this.setState({
-              comments: res,
-              loading: false
-            });
-          })
-          .catch(error => this.setState({
-            error: "Something went wrong while submitting form.",
-          }));
-     }
+    this.fetchPosts()
+    }
 
 
     render(){
@@ -48,7 +47,7 @@ class CommentBase extends React.Component{
                 <div className='row'>
                     <div className='col-4 pt-3 border-right'>
                         <h6>Comment on Post</h6>
-                        <CommentForm addComment={this.addComment} />
+                        <CommentForm {...this.props} addComment={this.addComment} />
                     </div>
                     <div className='col-8 pt-3 bg-white'>
                         <CommentList comments={this.state.comments} />

@@ -7,6 +7,7 @@ import PostService from '../../services/PostService'
 
 const validators={
     title: value => value.length > 3,
+    city: value => value.length > 3,    
     attachment: value => value.length > 10,
 }
 
@@ -14,8 +15,9 @@ class CreatePost extends React.Component {
     state={
         data:{
             title:'',
-            message:'',
-            attachment:''
+            city: '',
+            attachment:'',
+            message:''
         },
         errors:{
            title: true,
@@ -126,6 +128,18 @@ class CreatePost extends React.Component {
                     validationsClassName={this.getValidationsClassName('title')}
                     />
                     <FormField
+                    label='City'
+                    name="city"
+                    onBlur={this.handleBlur}
+                    value={data.city}
+                    onChange={this.handleChange}
+                    touch={touch.city}
+                    error={errors.city}
+                    inputType='text'
+                    validationsClassName={this.getValidationsClassName('city')}
+                    />
+                    <FormField
+                    label="Image URL"
                     name="attachment"
                     onBlur={this.handleBlur}
                     value={data.attachment}
