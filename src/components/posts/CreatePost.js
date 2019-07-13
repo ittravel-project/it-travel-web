@@ -4,12 +4,12 @@ import "simplemde/dist/simplemde.min.css";
 import { Redirect } from 'react-router-dom';
 import FormField from '../misc/FormField';
 import PostService from '../../services/PostService'
+import { withAuthConsumer } from '../../contexts/AuthStore';
 
 const validators={
     title: value => value.length > 3,
-    creater: value => value.length > 3,    
     city: value => value.length > 3,    
-    attachment: value => value.length > 10,
+    attachment: value => value.length > 10
 }
 
 class CreatePost extends React.Component {
@@ -23,7 +23,9 @@ class CreatePost extends React.Component {
         },
         errors:{
            title: true,
-           attachment: true
+           city: true,
+           attachment: true,
+           
         },
         goToPosts:false,
         touch:{}
@@ -127,14 +129,9 @@ class CreatePost extends React.Component {
 
                     <FormField
                     label='Creater'
-                    name="creater"
-                    onBlur={this.handleBlur}
+                    name={this.props.user.name}
                     value={data.creater}
-                    onChange={this.handleChange}
-                    touch={touch.creater}
-                    error={errors.creater}
-                    inputType='text'
-                    validationsClassName={this.getValidationsClassName('creater')}
+                    placeholder={this.props.user.name}
                     />
 
                     <FormField
@@ -148,6 +145,7 @@ class CreatePost extends React.Component {
                     inputType='text'
                     validationsClassName={this.getValidationsClassName('city')}
                     />
+
                     <FormField
                     label="Image URL"
                     name="attachment"
@@ -158,7 +156,6 @@ class CreatePost extends React.Component {
                     error={errors.title}
                     inputType='text'
                     validationsClassName={this.getValidationsClassName('attachment')}
-                
                     />
  
                     <SimpleMDE
@@ -181,4 +178,4 @@ class CreatePost extends React.Component {
     }
 }
 
-export default CreatePost
+export default withAuthConsumer(CreatePost)

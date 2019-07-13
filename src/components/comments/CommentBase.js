@@ -2,6 +2,7 @@ import React from 'react'
 import CommentForm from './CommentForm';
 import CommentList from './CommentList';
 import CommentService from '../../services/CommentService';
+import Post from '../posts/Post';
 
 
 class CommentBase extends React.Component{
@@ -9,7 +10,8 @@ class CommentBase extends React.Component{
         super(props);
 
         this.state={
-            comments:[]
+            comments:[],
+            post: []
         };
 
         this.addComment = this.addComment.bind(this);
@@ -40,6 +42,7 @@ class CommentBase extends React.Component{
                     <img src="https://nevadahumanesociety.org/wp-content/uploads/2018/08/NHS-Slider-03-1024x731.jpg" alt='logo' />
                     <h1 className='CommentBase-title'> 
                         Welcome 
+
                     </h1>
                 </header>
                 <div className='row'>

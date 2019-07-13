@@ -3,13 +3,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 import PostService from '../../services/PostService'
 import { Link } from 'react-router-dom';
 
-class TitlebarGridList extends React.Component {
+class PostGridList extends React.Component {
     state = {
         posts: []
       }
@@ -76,4 +75,4 @@ class TitlebarGridList extends React.Component {
 }
 
 
-export default TitlebarGridList
+export default PostGridList

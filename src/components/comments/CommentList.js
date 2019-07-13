@@ -10,12 +10,6 @@ const CommentList = (props) => {
         Comment{props.comments.length > 1 ? "s" : ""}
       </h5>
 
-      {/* {props.comments.length === 0 (
-        <div className="alert text-center alert-info">
-          Be the first to comment
-        </div>
-      ) }  */}
-
       {props.comments.map((comment, index) => (
         <Comment key={index} comment={comment} />
       ))}

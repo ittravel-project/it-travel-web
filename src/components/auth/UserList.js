@@ -1,9 +1,6 @@
 import React from 'react'
 import AuthService from '../../services/AuthService'
 import User from './User'
-import {withAuthConsumer} from '../../contexts/AuthStore'
-import authService from '../../services/AuthService'
-
 
 
 class UserList extends React.Component {
@@ -11,13 +8,16 @@ class UserList extends React.Component {
     users: []
   }
 
+  fetchUsers = () => {
+    AuthService.getUserList().then(
+      response => {
+        this.setState({ users: response.data })
+      }
+    )
+  }
 
   componentDidMount() {
-    authService.getProfileList(this.state.users)
-      .then(
-          (user) => this.setState({ users: {...this.state, ...user} }),
-          (error) => console.error(error)
-        )
+    this.fetchUsers()
   }
 
   render () {
@@ -31,4 +31,4 @@ class UserList extends React.Component {
   }
 }
 
-export default withAuthConsumer(UserList)
+export default UserList

@@ -29,7 +29,7 @@ class PostsList extends React.Component {
 
   render () {
     return (
-      <div className="PostList">
+      <div>
         {this.state.posts.map((post, i) => (
           <Post post={post} key={i} onDeletePost={this.deletePost}/>
         ))}

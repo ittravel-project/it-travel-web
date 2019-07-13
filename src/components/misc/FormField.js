@@ -31,12 +31,11 @@ const FormField = (props) => {
             
             {isInput && <input type='file'></input>}
 
-            {isDisabled && <input type='text' disabled></input>}
+            {isDisabled && <input type='text' placeholder={props.placeholder}></input>}
 
-  
             {inputType === 'textarea'
             ? <textarea { ...inputAttrs }rows={2}></textarea>
-            : (!isCreate && <input{...inputAttrs}/>)}
+            : (!isCreate && <input placeholder={props.placeholder} {...inputAttrs}/>)}
 
             {touch && !error && (
                 <div className='valid-feedback'>
