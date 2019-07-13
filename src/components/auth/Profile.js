@@ -1,5 +1,4 @@
 import React from 'react'
-// import { Redirect } from 'react-router-dom';
 import {withAuthConsumer} from '../../contexts/AuthStore'
 import authService from '../../services/AuthService'
 import NavBar from '../misc/NavBar';
@@ -39,54 +38,8 @@ class Profile extends React.Component {
         password: '',
         avatarURL: 'http://ecuciencia.utc.edu.ec/media/foto/default-user_x5fGYax.png',
         avatar: ''
-    },
-    errors: {},
-    touch: {}
+    }
   }
-
-  // handleChange = (event) => {
-  //   const { name, value, files } = event.target;
-  //   this.setState({
-  //     user: {
-  //       ...this.state.user,
-  //       [name]: files && files[0] ? files[0] : value
-  //     },
-  //     errors: {
-  //       ...this.state.errors,
-  //       [name]: validations[name] && validations[name](value)
-  //     }
-  //   })
-  // }
-
-  // handleBlur = (event) => {
-  //   const { name } = event.target;
-  //   this.setState({
-  //     touch: {
-  //       ...this.state.touch,
-  //       [name]: true
-  //     }
-  //   })
-  // }
-
-  // handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   if (this.isValid()) {
-  //     authService.updateProfile(this.state.user)
-  //       .then(
-  //         (user) => this.setState({ user: {...this.state.user, ...user} }),
-  //         (error) => {
-  //           const { message, errors } = error.response.data;
-  //           this.setState({
-  //             errors: {
-  //               ...this.state.errors,
-  //               ...errors,
-  //               email: !errors && message
-  //             }
-  //           })
-  //         }
-  //       )
-  //   }
-  // }
 
   isValid = () => {
     return !Object.keys(this.state.user)
@@ -103,7 +56,7 @@ class Profile extends React.Component {
   }
 
   render() {
-    const { errors, user, touch } =  this.state;
+    const { user } =  this.state;
 
     return (
       <div className="box mx-auto">

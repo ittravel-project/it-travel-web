@@ -6,7 +6,7 @@ const Post = ({ post, onDeletePost }) => {
  const handleDelete = () => onDeletePost(post.id)
 
  return (
-   <div className="card mb-4">
+   <div className="card mb-4" style={{ maxWidth: 600, maxHeight: 750}}>
      <img style={{ maxWidth: 100, maxHeight: 100}} width='25%' src={post.attachment} className="card-img-top" alt="post" />
 
      <div className="card-body">

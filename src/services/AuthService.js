@@ -9,6 +9,8 @@ const authenticate = (user) => http.post('/login', user)
 const getProfile = () => http.get('/profile')
  .then(res => Promise.resolve(res.data));
 
+ const getProfileList = user => http.get('/profilelist', user)
+
 const updateProfile = (user) => {
     const data = new FormData();
     Object.keys(user).forEach(prop =>{
@@ -25,4 +27,4 @@ const logout = () => {
 }
 
 
-export default {register, authenticate, getProfile, updateProfile, logout}
+export default {register, authenticate, getProfile, getProfileList, updateProfile, logout}

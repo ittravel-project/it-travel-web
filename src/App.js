@@ -10,8 +10,8 @@ import ProfileEdit from './components/auth/ProfileEdit';
 import CreatePost from './components/posts/CreatePost';
 import PostsBase from './components/posts/PostBase';
 import CommentBase from './components/comments/CommentBase';
-
-
+import UserList from './components/auth/UserList';
+import User from './components/auth/User'
 
 
 class App extends React.Component {
@@ -24,6 +24,8 @@ class App extends React.Component {
           <Route exact path='/register' component={Register} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/create' component={CreatePost} />
+          <PrivateRoute exact path='/profilelist' component={User} />
+
           <PrivateRoute exact path='/profile' component={Profile} />
           <PrivateRoute exact path='/profile/edit' component={ProfileEdit} />
           <PrivateRoute exact path='/posts' component={PostsBase} />

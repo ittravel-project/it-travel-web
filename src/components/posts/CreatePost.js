@@ -7,6 +7,7 @@ import PostService from '../../services/PostService'
 
 const validators={
     title: value => value.length > 3,
+    creater: value => value.length > 3,    
     city: value => value.length > 3,    
     attachment: value => value.length > 10,
 }
@@ -15,6 +16,7 @@ class CreatePost extends React.Component {
     state={
         data:{
             title:'',
+            creater: '',
             city: '',
             attachment:'',
             message:''
@@ -50,11 +52,6 @@ class CreatePost extends React.Component {
                 ...this.state.data,
                 message: value
             }
-            // ,
-            // errors:{
-            //     ...this.state.errors,
-            //     message: validators.message(value)
-            // }
         });
     };
     
@@ -109,7 +106,7 @@ class CreatePost extends React.Component {
             return <Redirect to='/posts' />
         }
 
-        const {data,errors,touch}=this.state
+        const {user, data,errors,touch}=this.state
         const hasErrors=Object.values(errors).some(el => el === true)
         
         return (
@@ -127,6 +124,19 @@ class CreatePost extends React.Component {
                     inputType='text'
                     validationsClassName={this.getValidationsClassName('title')}
                     />
+
+                    <FormField
+                    label='Creater'
+                    name="creater"
+                    onBlur={this.handleBlur}
+                    value={data.creater}
+                    onChange={this.handleChange}
+                    touch={touch.creater}
+                    error={errors.creater}
+                    inputType='text'
+                    validationsClassName={this.getValidationsClassName('creater')}
+                    />
+
                     <FormField
                     label='City'
                     name="city"
@@ -156,6 +166,9 @@ class CreatePost extends React.Component {
                         name='message'
                         value={data.message}
                         onChange={this.handleContentChange}
+                        options={{
+                            toolbar: ["bold", "italic", "heading", "|", "quote", "unordered-list", "ordered-list", "|", "link", "preview", "side-by-side", "fullscreen"]
+                        }}
                     />
 
                     <button type='submit'

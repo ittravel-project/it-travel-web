@@ -14,3 +14,5 @@ const PostsBase = () => (
 )
 
 export default PostsBase
+
+

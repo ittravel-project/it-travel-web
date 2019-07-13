@@ -49,7 +49,7 @@ class SearchBar extends React.Component {
                             </div>
                         )}
                     </div>
-                    <div className='d-flex justify-content-center'>
+                    <div className='d-flex flex-direction-row'>
                     <button type='submit' className="btn btn-primary" disabled={this.state.error}>Search</button>
                     </div>
                 </form>

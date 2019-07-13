@@ -12,7 +12,8 @@ const FormField = (props) => {
         inputType,
         validationClassName,
         isInput,
-        isCreate
+        isCreate, 
+        isDisabled
     } = props
 
     const inputAttrs ={
@@ -29,6 +30,9 @@ const FormField = (props) => {
             <label>{label}</label>
             
             {isInput && <input type='file'></input>}
+
+            {isDisabled && <input type='text' disabled></input>}
+
   
             {inputType === 'textarea'
             ? <textarea { ...inputAttrs }rows={2}></textarea>

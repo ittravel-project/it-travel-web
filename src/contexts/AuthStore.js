@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const  CURRENT_USER_KEY = 'current-user';
 const AuthContext = React.createContext();
 

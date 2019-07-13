@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Comment(props) {
+const Comment = (props) => {
   const { name, text, time } = props.comment;
 
   return (
@@ -21,3 +21,5 @@ export default function Comment(props) {
     </div>
   );
 }
+
+export default Comment

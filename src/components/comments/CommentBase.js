@@ -15,16 +15,15 @@ class CommentBase extends React.Component{
         this.addComment = this.addComment.bind(this);
     }
        
-    addComment(comment) {
-        this.setState({
-        comments: [comment, ...this.state.comments]
-        });
+    addComment() {
+      
+        this.fetchPosts()
     }
        
     fetchPosts = () => {
-        CommentService.getComments(this.props.match.params.postId).then(
+        CommentService.getCommentByPost(this.props.match.params.postId).then(
             response => {
-            this.setState({ comments: response.data })
+            this.setState({ comments: response.data.reverse() })
             }
         )
     }
@@ -35,7 +34,6 @@ class CommentBase extends React.Component{
 
 
     render(){
-        // const {comments} = this.state
         return(
             <div className="CommentBase container bg-light shadow">
                 <header className="CommentBase-header">

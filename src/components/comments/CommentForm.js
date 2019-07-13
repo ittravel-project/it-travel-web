@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import CommentService from '../../services/CommentService'
 
-export default class CommentForm extends Component {  
+class CommentForm extends React.Component {  
   constructor(props) {
     super(props);
 
@@ -9,8 +9,7 @@ export default class CommentForm extends Component {
       error: "",
 
       comment: {
-        name: "",
-        textg: ""
+        text: ""
       }
     };
        this.handleFieldChange = this.handleFieldChange.bind(this);
@@ -41,11 +40,12 @@ export default class CommentForm extends Component {
       return;
     }
  
-    this.setState({ error: "" });
+    // this.setState({ error: "" });
  
-    let { comment } = this.state;
-
-    CommentService.createComment(this.props.match.params.postId ,comment)
+    const { comment } = this.state;
+    
+    
+    CommentService.createComment(this.props.match.params.postId, { text: comment.text, name: "todo"})
       .then(res => res.data)
       .then(res => {
         if (res.error) {
@@ -68,7 +68,7 @@ export default class CommentForm extends Component {
   }
  
   isFormValid() {
-    return this.state.comment.name !== "" && this.state.comment.text !== "";
+    return this.state.comment.text !== "";
   }
 
   renderError() {
@@ -81,16 +81,7 @@ export default class CommentForm extends Component {
     return (
       <React.Fragment>
         <form method="post" onSubmit={this.onSubmit}>
-          <div className="form-group">
-            <input
-              onChange={this.handleFieldChange}
-              value={this.state.comment.name}
-              className="form-control"
-              placeholder="😎 Your Name"
-              name="name"
-              type="text"
-            />
-          </div>
+    
 
           <div className="form-group">
             <textarea
@@ -115,3 +106,6 @@ export default class CommentForm extends Component {
     );
   }
 }
+
+
+export default CommentForm
