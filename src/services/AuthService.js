@@ -9,7 +9,9 @@ const authenticate = (user) => http.post('/login', user)
 const getProfile = () => http.get('/profile')
  .then(res => Promise.resolve(res.data));
 
- const getUserList = () => http.get('/profilelist')
+const getUser = id => http.get(`/profile/${id}`)
+
+const getProfileById = (userId) => http.get(`/profile/${userId}`)
 
 const updateProfile = (user) => {
     const data = new FormData();
@@ -27,4 +29,4 @@ const logout = () => {
 }
 
 
-export default {register, authenticate, getProfile, getUserList, updateProfile, logout}
+export default {register, authenticate, getProfile, getUser, getProfileById, updateProfile, logout}

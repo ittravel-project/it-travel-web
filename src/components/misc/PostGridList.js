@@ -53,7 +53,7 @@ class PostGridList extends React.Component {
                     <img src={post.attachment} alt={post.title} />
                     <GridListTileBar
                       title={post.title}
-                      subtitle={<span>by: {post.creater}</span>}
+                      subtitle={<span>by: {post.creater.name}</span>}
                       actionIcon={
                             <IconButton aria-label={`info about ${post.title}`} className={classes.icon}>
                                 <Link className="card-title" to={`/posts/${post.id}/comments`}>

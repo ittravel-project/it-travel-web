@@ -2,7 +2,7 @@ import React from "react";
 import Comment from "./Comment";
 
 const CommentList = (props) => {
-    console.log(props)
+
   return (
     <div className="CommentList">
       <h5 className="text-muted mb-4">

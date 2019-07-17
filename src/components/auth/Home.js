@@ -10,13 +10,9 @@ import Typography from '@material-ui/core/Typography';
 import Zoom from '@material-ui/core/Zoom';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
-import EditIcon from '@material-ui/icons/Edit';
-import UpIcon from '@material-ui/icons/KeyboardArrowUp';
 import { green } from '@material-ui/core/colors';
 import PostGridList from '../misc/PostGridList'
 import UserGridList from '../misc/UserGridList'
-import SearchBar from '../misc/SearchBar'
-import queryString from 'query-string'
 import NavBar from '../misc/NavBar'
 
 
@@ -82,16 +78,11 @@ const Home = () => {
         icon: <AddIcon />,
         label: 'Add',
         },
-        {color: 'secondary',
-        className: classes.fab,
-        icon: <EditIcon />,
-        label: 'Edit',
-        },
-        {color: 'inherit',
-        className: clsx(classes.fab, classes.fabGreen),
-        icon: <UpIcon />,
-        label: 'Expand',
-        },
+        // {color: 'inherit',
+        // className: clsx(classes.fab, classes.fabGreen),
+        // icon: <UpIcon />,
+        // label: 'Expand',
+        // },
     ];
 
     return (
@@ -116,7 +107,6 @@ const Home = () => {
             onChangeIndex={handleChangeIndex}
         >
             <TabContainer dir={theme.direction}>
-              <SearchBar queryString={queryString} />
               <PostGridList />
             </TabContainer>
 
@@ -137,7 +127,7 @@ const Home = () => {
             }}
             unmountOnExit
             >
-            <Fab aria-label={fab.label} className={fab.className} color={fab.color}>
+            <Fab aria-label={fab.label} className={fab.className} color={fab.color} href="/posts/new">
                 {fab.icon}
             </Fab>
             </Zoom>

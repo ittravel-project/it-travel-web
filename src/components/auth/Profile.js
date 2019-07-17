@@ -1,6 +1,6 @@
 import React from 'react'
 import {withAuthConsumer} from '../../contexts/AuthStore'
-import authService from '../../services/AuthService'
+import AuthService from '../../services/AuthService'
 import NavBar from '../misc/NavBar';
 import PostsList from '../posts/PostList';
 
@@ -50,7 +50,7 @@ class Profile extends React.Component {
 
 
   componentDidMount() {
-    authService.getProfile()
+    AuthService.getProfile()
       .then(
           (user) => this.setState({ user: {...this.state, ...user} }),
           (error) => console.error(error)

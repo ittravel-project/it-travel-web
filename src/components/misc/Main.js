@@ -2,52 +2,55 @@ import React from 'react';
 import { Carousel } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
+
 const Main = () => {
     return (
         <div className='main'>
-            <h1>ItTravel</h1>
+            <Carousel.Caption>
+              <h1 className="app-name">S'cape</h1>
+            </Carousel.Caption>
 
-            <Carousel>
+            <Carousel indicators={false} fade={true}>
               <Carousel.Item>
                 <img
-                  className="d-block w-100"
-                  src="http://lorempixel.com/300/300/nature/2/"
+                  className="d-block slider-img"
+                  src="https://images.unsplash.com/photo-1506976773555-b3da30a63b57?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80https://images.unsplash.com/photo-1551899892-56314e56f2c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=612&q=80"
                   alt="First slide"
                 />
                 
-                <Carousel.Caption>
-                  <h3>First slide label</h3>
-                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                <Carousel.Caption className="slider-text">
+                  <h3>A Traveler's Guide</h3>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
                 <img
-                  className="d-block w-100"
-                  src="http://lorempixel.com/300/300/nature/3"
-                  alt="Third slide"
+                  className="d-block slider-img"
+                  src="https://images.unsplash.com/photo-1531778456116-a2c5c972d75f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                  alt="Second slide"
                 />
 
-                <Carousel.Caption>
-                  <h3>Second slide label</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <Carousel.Caption className="slider-text">
+                  <h3>For Travelers</h3>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
                 <img
-                  className="d-block w-100"
-                  src="http://lorempixel.com/300/300/nature/4"
+                  className="d-block slider-img"
+                  src="https://images.unsplash.com/photo-1533854257392-71c5ff28dff7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=633&q=80"
                   alt="Third slide"
                 />
 
-                <Carousel.Caption>
-                  <h3>Third slide label</h3>
-                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                <Carousel.Caption className="slider-text">
+                  <h3>By Travelers</h3>
                 </Carousel.Caption>
               </Carousel.Item>
             </Carousel>
-            
-            <Link className="btn btn-primary" to='/login'>Log in</Link>
-            <Link className="btn btn-danger" to='/register'>Create Account</Link>
+            <Carousel.Caption className="main-buttons">
+                <Link className="login-btn" to='/login'>Log in</Link>
+
+                <Link className="signup-btn" to='/register'>Sign up</Link>
+            </Carousel.Caption>
+
         </div> 
     )
 }

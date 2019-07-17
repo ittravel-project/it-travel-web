@@ -16,7 +16,7 @@ class CreatePost extends React.Component {
     state={
         data:{
             title:'',
-            creater: '',
+            creater: this.props.user.id,
             city: '',
             attachment:'',
             message:''
@@ -105,7 +105,7 @@ class CreatePost extends React.Component {
     }
     render() {
         if (this.state.goToPosts) {
-            return <Redirect to='/posts' />
+            return <Redirect to='/home' />
         }
 
         const {user, data,errors,touch}=this.state
@@ -130,7 +130,7 @@ class CreatePost extends React.Component {
                     <FormField
                     label='Creater'
                     name={this.props.user.name}
-                    value={data.creater}
+                    value={this.props.user.name}
                     placeholder={this.props.user.name}
                     />
 

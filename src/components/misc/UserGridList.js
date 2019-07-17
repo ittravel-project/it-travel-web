@@ -14,11 +14,11 @@ class UserGridList extends React.Component {
       }
     
       fetchUsers = () => {
-        AuthService.getUserList().then(
-            response => {
-              this.setState({ users: response.data })
-            }
-          )      
+        AuthService.getUser().then(
+          response => {
+            this.setState({ users: response.data })
+          }
+        )      
       }
     
       componentDidMount() {
