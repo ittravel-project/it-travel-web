@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* overflow: hidden; */
+  height: 100%;
 }
 
 code {
@@ -13,67 +14,201 @@ code {
     monospace;
 }
 
-.image-cropper {
+
+
+/*MIN WIDTH: 320PX - MAX WIDTH: 414PX*/
+@media only screen and (min-width: 320px) and (max-width: 414px) {
+  .image-cropper {
     width: 55%;
     height: 30%;
     position: relative;
     overflow: hidden;
     border-radius: 50%;
     border: solid rgb(87, 83, 83);
-}
-.profile-pic {
-  display: inline;
-  margin: 0 auto;
+  }
+  .profile-pic {
+    display: inline;
+    margin: 0 auto;
+  }
+  .app-name{
+    margin-bottom: 190%;
+    text-shadow: 0 2px 17px rgba(224, 226, 230, 0.67);
+    font-weight: bold;
+    font-size: 3.5rem;
+  }
+  .slider-img{
+    width: 100%;
+    height: 100vh;
+  }
+  .slider-text{
+    margin-bottom: 70%;
+    color: green;
+  }
+  .login-btn{
+    width: 55%;
+    color: white;
+    border: 2px solid white;
+    border-radius: 25%;
+    padding: 5% 12%;
+    margin-bottom: 5%;
+  }
+  .signup-btn{
+    width: 25%;
+    color: white;
+    margin-left: 6%;
+    border: 2px solid white;
+    border-radius: 25%;
+    padding: 5% 11%;
+    margin-bottom: 1%;
+  }
+  .main-buttons{
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  .login-container {
+    width: 40%;
+  } 
+  .login-title {
+    margin-left: 5%;
+  }
+   .login-button{
+    margin-left: 35%;
+  }
+   .login-icons {
+    width: 40px;
+  }
+  .register-icons {
+    width: 40px;
+  }
+  .register-title {
+    margin-left: 5%;
+  }
+  .register-button{
+    margin-left: 28%;
+  }
+  .home-top-image {
+    width: 100%;
+    height: 22%;
+  }
+  .CreatePost {
+    background-color: #dff0ea;
+  }
+  .share{
+    font-size: 1.6rem;
+    padding-top: 8%;
+    font-weight: bold;
+  }
+  .createPostContainer {
+    width: 92%;
+    margin-left: 4%;
+    padding-bottom: 5%;
+  }
+  .formControl {
+    height: 50%;
+  }
+  .postPageImage{
+    width: 100%;
+    height: 180px;
+    margin-top: 5%;
+  }
+  .CommentBase{
+    padding-left: 3%;
+    padding-right: 3%;
+    overflow-x: hidden;
+    height: 90%;
+  }
+  .commentBox{
+    overflow-y: scroll;
+    height: 220px;
+  }
+  .postDescriptionScroll {
+    overflow-y: scroll;
+    height: 150px;
+  }
+  .commentTextBox small {
+    font-size: 9px;
+  }
+  .commentTextBox h1 {
+    font-size: 10px
+  }
+  .FormField {
+    margin: 0;
+  }
+  .CodeMirror {
+    min-height: 150px !important;
+  }
+  .CodeMirror-scroll{
+    min-height: 100px !important;
+  }
+
+
 }
 
-.app-name{
-  margin-bottom: 200%;
-  text-shadow: 0 2px 17px rgba(224, 226, 230, 0.67);
-  font-weight: bold;
-}
-.slider-img{
-  width: 100%;
-  height: 730px;
-}
-.slider-text{
-  margin-bottom: 70%;
-  color: green;
-}
+/*MIN WIDTH: 415PX - MAX WIDTH: 768PX*/
+@media only screen and (min-width: 415px) and (max-width: 768px) {
+  .image-cropper {
+    width: 55%;
+    height: 30%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    border: solid rgb(87, 83, 83);
+  }
+  .profile-pic {
+    display: inline;
+    margin: 0 auto;
+  }
 
-.login-btn{
-  width: 55%;
-  color: white;
-  border: 2px solid white;
-  border-radius: 25%;
-  padding: 3% 10%;
-  margin-bottom: 5%;
-}
-.signup-btn{
-  width: 25%;
-  color: white;
-  margin-left: 6%;
-  border: 2px solid white;
-  border-radius: 25%;
-  padding: 3% 9%;
-  margin-bottom: 1%;
-}
-.buttons{
-  color: white;
-  font-size: 1rem;
-}
-.login-container {
-  width: 40%;
-} 
-.register-icons {
-  width: 40px;
-}
+  .app-name{
+    margin-bottom: 200%;
+    text-shadow: 0 2px 17px rgba(224, 226, 230, 0.67);
+    font-weight: bold;
+  }
+  .slider-img{
+    width: 100%;
+    height: 730px;
+  }
+  .slider-text{
+    margin-bottom: 70%;
+    color: green;
+  }
 
-.login-icons {
-  width: 40px;
-}
-.register-button{
-  margin-left: 28%;
-}
-.login-button{
-  margin-left: 35%;
+  .login-btn{
+    width: 55%;
+    color: white;
+    border: 2px solid white;
+    border-radius: 25%;
+    padding: 3% 10%;
+    margin-bottom: 5%;
+  }
+  .signup-btn{
+    width: 25%;
+    color: white;
+    margin-left: 6%;
+    border: 2px solid white;
+    border-radius: 25%;
+    padding: 3% 9%;
+    margin-bottom: 1%;
+  }
+  .buttons{
+    color: white;
+    font-size: 1rem;
+  }
+  .login-container {
+    width: 40%;
+  } 
+  .register-icons {
+    width: 40px;
+  }
+
+  .login-icons {
+    width: 40px;
+  }
+  .register-button{
+    margin-left: 28%;
+  }
+  .login-button{
+    margin-left: 35%;
+  } 
 }

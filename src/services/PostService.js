@@ -7,5 +7,5 @@ const getPostDetail = id => http.get(`/posts/${id}/comments`)
 
 
 
-export default {getPosts, deletePost, createPost, getPostDetail}
+export default { getPosts, deletePost, createPost, getPostDetail}
 

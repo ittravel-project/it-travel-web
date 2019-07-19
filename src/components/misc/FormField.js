@@ -12,8 +12,7 @@ const FormField = (props) => {
         inputType,
         validationClassName,
         isInput,
-        isCreate, 
-        isDisabled
+        isHidden
     } = props
 
     const inputAttrs ={
@@ -26,16 +25,14 @@ const FormField = (props) => {
     }
     
     return (
-        <div className='form-group'>
-            <label>{label}</label>
+        <div className='FormField'>
+            <label className='FormField'>{label}</label>
             
             {isInput && <input type='file'></input>}
-
-            {isDisabled && <input type='text' placeholder={props.placeholder}></input>}
-
+         
             {inputType === 'textarea'
             ? <textarea { ...inputAttrs }rows={2}></textarea>
-            : (!isCreate && <input placeholder={props.placeholder} {...inputAttrs}/>)}
+            : ( <input placeholder={props.placeholder} type={props.type} {...inputAttrs}/>)}
 
             {touch && !error && (
                 <div className='valid-feedback'>

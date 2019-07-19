@@ -3,9 +3,12 @@ import PostService from '../../services/PostService'
 import Post from './Post';
 
 class PostsList extends React.Component {
-  state = {
-    posts: []
-  }
+  constructor(props){
+		super(props)
+		this.state = {
+		    posts: []	
+		  }
+	}
 
   fetchPosts = () => {
     PostService.getPosts().then(
@@ -31,7 +34,7 @@ class PostsList extends React.Component {
     return (
       <div>
         {this.state.posts.map((post, i) => (
-          <Post post={post} key={i} onDeletePost={this.deletePost}/>
+        <Post {...this.props} post={post} key={i} onClick={this.deletePost} onDeletePost={this.deletePost} addToFavorite={this.props.addToFavorite} />
         ))}
       </div>
     )

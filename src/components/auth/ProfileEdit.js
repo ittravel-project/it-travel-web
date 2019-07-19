@@ -1,8 +1,9 @@
 import React from 'react'
-// import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import {withAuthConsumer} from '../../contexts/AuthStore'
 import authService from '../../services/AuthService'
 import NavBar from '../misc/NavBar';
+
 
 
 const validations = {
@@ -109,8 +110,12 @@ class ProfileEdit extends React.Component {
       <div className="box mx-auto">
         <div className="row">
           <div className="col-6">
-            <h3>Profile</h3>
             <form id="profile-form" className="mt-4" onSubmit={this.handleSubmit}>
+            
+            <div className="col-6 pt-4">
+              <label htmlFor="avatar" className="avatar"><img src={user.avatar ? URL.createObjectURL(user.avatar) : user.avatarURL} className="rounded-circle mb-3" alt="Cinque Terre" width="304" height="236" /></label>
+              <input type="file" id="avatar" name="avatar" onChange={this.handleChange} />
+          </div>
             <div className="form-group">
                 <label>Username</label>
                 <input type='text' className={`form-control ${touch.name && errors.name ? 'is-invalid' : ''}`} name="name" onChange={this.handleChange} onBlur={this.handleBlur} value={user.name} />
@@ -135,14 +140,11 @@ class ProfileEdit extends React.Component {
                 <input type="password" name="password" className={`form-control ${touch.password && errors.password ? 'is-invalid' : ''}`} onChange={this.handleChange} onBlur={this.handleBlur} value={user.password} />
                 <div className="invalid-feedback">{ errors.password }</div>
               </div>
+              <button className="btn btn-primary" form="profile-form" type="submit" disabled={!this.isValid()}>Update profile</button>
+
             </form>
           </div>
-          <div className="col-6 pt-4">
-            
-            <label htmlFor="avatar" className="avatar"><img src={user.avatar ? URL.createObjectURL(user.avatar) : user.avatarURL} className="rounded mb-3" alt="Cinque Terre" /></label>
-            <input type="file" id="avatar"  name="avatar" onChange={this.handleChange} />
-            <button className="btn btn-white" form="profile-form" type="submit" disabled={!this.isValid()}>Update profile</button>
-          </div>
+     
         </div>
 
         <NavBar />

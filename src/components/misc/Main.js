@@ -7,7 +7,7 @@ const Main = () => {
     return (
         <div className='main'>
             <Carousel.Caption>
-              <h1 className="app-name">S'cape</h1>
+              <h1 className="app-name">S'cape<i className="fa fa-paper-plane"></i></h1>
             </Carousel.Caption>
 
             <Carousel indicators={false} fade={true}>

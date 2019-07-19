@@ -2,11 +2,24 @@ import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import { Link } from 'react-router-dom'
 
-const Post = ({ post, onDeletePost }) => {
- const handleDelete = () => onDeletePost(post.id)
- 
+class Post extends React.Component {
+  constructor(props){
+    super(props);
 
- return (
+    this.state = {
+        post: [],
+    };
+  }
+    
+  handleDelete = (e) => {
+    e.preventDefault()
+    this.props.onDeletePost(this.props.post.id)
+  }
+ 
+  render(){
+    const { post, isDelete, isFavorite } = this.props
+
+    return (
    <div className="card mb-4" style={{ maxWidth: 600, maxHeight: 750}}>
      <img style={{ maxWidth: 100, maxHeight: 100}} width='25%' src={post && post.attachment} className="card-img-top" alt="post" />
 
@@ -17,11 +30,26 @@ const Post = ({ post, onDeletePost }) => {
           escapeHtml={false}
         />
 
-       <button className="btn btn-danger btn-sm" onClick={handleDelete}>Delete</button>
+        {isDelete && (  
+          <button className="btn btn-danger btn-sm" onClick={this.handleDelete}>Delete</button>
+        )}
+
+
+        {!isFavorite && (
+          <div className="d-flex justify-content-between">
+            <a href="#"
+              className="card-link">
+            </a>
+            <button className="card-link btn btn-sm btn-primary" onClick={() => { this.props.addToFavorite(post) }}>Favorite</button>
+          </div>
+        )}
+       
      </div>
 
    </div>
  )
+  }
+  
 }
 
 export default Post

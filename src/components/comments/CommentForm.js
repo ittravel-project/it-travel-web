@@ -12,9 +12,10 @@ class CommentForm extends React.Component {
         text: ""
       }
     };
-       this.handleFieldChange = this.handleFieldChange.bind(this);
+    
+    this.handleFieldChange = this.handleFieldChange.bind(this);
 
-        this.onSubmit = this.onSubmit.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
 
   }
 
@@ -29,8 +30,6 @@ class CommentForm extends React.Component {
       }
     });
   };
-
-
  
   onSubmit(e) {
     e.preventDefault();
@@ -39,11 +38,8 @@ class CommentForm extends React.Component {
       this.setState({ error: "All fields are required." });
       return;
     }
- 
-    // this.setState({ error: "" });
- 
+  
     const { comment } = this.state;
-    
     
     CommentService.createComment(this.props.match.params.postId, { text: comment.text, name: "todo"})
       .then(res => res.data)
@@ -80,8 +76,7 @@ class CommentForm extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <form method="post" onSubmit={this.onSubmit}>
-    
+        <form method="post" onSubmit={this.onSubmit} className="CommentForm">
 
           <div className="form-group">
             <textarea
@@ -96,8 +91,8 @@ class CommentForm extends React.Component {
 
           {this.renderError()}
 
-          <div className="form-group">
-            <button disabled={this.state.loading} className="btn btn-primary">
+          <div className="form-group pb-0">
+            <button disabled={this.state.loading} className="btn btn-primary p-2">
               Comment ➤
             </button>
           </div>

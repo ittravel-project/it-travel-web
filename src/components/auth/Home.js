@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import clsx from 'clsx';
 import SwipeableViews from 'react-swipeable-views';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -36,22 +35,37 @@ TabContainer.propTypes = {
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    width: 500,
+    width: '100%',
     position: 'relative',
     minHeight: 200,
+    height: '100vh'
+    
   },
   fab: {
     position: 'absolute',
     bottom: theme.spacing(2),
     right: theme.spacing(2),
+    marginBottom: '15%'
   },
   fabGreen: {
     color: theme.palette.common.white,
     backgroundColor: green[500],
     '&:hover': {
       backgroundColor: green[600],
-    },
+    }
   },
+  tabsStyle: {
+    backgroundColor: '#f7b71d'
+  },
+  tabStyle: {
+    fontWeight: "bold"
+  },
+  swipeStyle: {
+    overflowY: "scroll",
+  height: "59.5%",
+    // backgroundColor: "red"
+  }
+ 
 }));
 
 const Home = () => {
@@ -77,27 +91,22 @@ const Home = () => {
         className: classes.fab,
         icon: <AddIcon />,
         label: 'Add',
-        },
-        // {color: 'inherit',
-        // className: clsx(classes.fab, classes.fabGreen),
-        // icon: <UpIcon />,
-        // label: 'Expand',
-        // },
+        }
     ];
 
     return (
         <div className={classes.root}>
-             <img src='https://img.jakpost.net/c/2018/01/11/2018_01_11_38768_1515668901._large.jpg' width='500px' height='200px'/>
+             <img src='https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1233&q=80' alt='' className="home-top-image"/>
         <AppBar position="static" color="default">
             <Tabs
             value={value}
             onChange={handleChange}
             indicatorColor="primary"
-            textColor="primary"
             variant="fullWidth"
+            className={classes.tabsStyle}
             >
-            <Tab label="Destinations" />
-            <Tab label="Travelers" />
+            <Tab label="Destinations" className={classes.tabStyle} />
+            <Tab label="Travelers" className={classes.tabStyle} />
             {/* <Tab label="Favorites" /> */}
             </Tabs>
         </AppBar>
@@ -105,6 +114,7 @@ const Home = () => {
             axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
             index={value}
             onChangeIndex={handleChangeIndex}
+            className={classes.swipeStyle}
         >
             <TabContainer dir={theme.direction}>
               <PostGridList />
@@ -113,8 +123,8 @@ const Home = () => {
             <TabContainer dir={theme.direction}>
               <UserGridList />
             </TabContainer>
-
-            <TabContainer dir={theme.direction}>Item Three</TabContainer>
+{/* 
+            <TabContainer dir={theme.direction}>Item Three</TabContainer> */}
 
         </SwipeableViews>
         {fabs.map((fab, index) => (

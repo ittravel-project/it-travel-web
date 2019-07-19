@@ -111,7 +111,7 @@ class Register extends Component {
       <div className="container mt-5 login-container">
         <div className="row justify-content-md-center">
           <div className="col-xs-12 col-sm-12 col-md-4 login">
-            <h3>Let's Start Traveling</h3>
+            <h3 className="register-title">Let's Start Traveling   <i className="fa fa-bicycle"></i></h3>
             <form id="register-form" className="mt-4" onSubmit={this.handleSubmit}>
               <div className="form-group">
                 <div className="input-group mb-2">

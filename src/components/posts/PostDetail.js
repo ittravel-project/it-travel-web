@@ -1,5 +1,4 @@
 import React from 'react'
-import Post from './Post'
 import PostService from '../../services/PostService';
 import ReactMarkdown from 'react-markdown'
 
@@ -27,15 +26,15 @@ class PostDetail extends React.Component {
         return (
             <article className="PostDetail">
                  <header className="CommentBase-header">
-                    <h1 className='CommentBase-title'> 
-                        Welcome Traveler
-                    </h1>
-                    <img src={this.state.post.attachment} alt='logo' />
+                    <img src={this.state.post.attachment} alt='logo' className="postPageImage"/>
                     <p>{this.state.post.city}</p>
-                    <ReactMarkdown
-                    source={this.state.post.message}
-                    escapeHtml={false}
-                    />
+                    <div className="postDescriptionScroll">
+                        <ReactMarkdown
+                        source={this.state.post.message}
+                        escapeHtml={false}
+                        />
+                    </div>
+                  
                 </header>
             </article>
         )

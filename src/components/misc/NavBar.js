@@ -1,27 +1,43 @@
 import React, { Fragment } from 'react';
 import AuthService from '../../services/AuthService';
-import { NavLink } from 'react-router-dom'
 import { withAuthConsumer } from '../../contexts/AuthStore';
+import { makeStyles } from '@material-ui/core/styles';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import HomeIcon from '@material-ui/icons/Home';
+import ProfileIcon from '@material-ui/icons/Person';
+import SignOutIcon from '@material-ui/icons/ExitToApp';
 
 
 class NavBar extends React.Component{
+ 
   handleLogout=() => {
     AuthService.logout()
       .then(() => this.props.onUserChange(null))
   } 
 
   render(){
+    const classes = makeStyles({
+      root: {
+        width: 500,
+        height: 200
+      },
+      navStyle: {
+        textDecoration: "none",
+        marginTop: "15px"
+      }
+    });
+
     return(
       <Fragment>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-bottom">
-        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav">
-            <NavLink className="nav-item nav-link active" to="/home"><i className="fa fa-home"></i></NavLink>
-            <NavLink   className="nav-item nav-link active" to="/profile"><i className="fa fa-user"></i></NavLink>
-            <i className="fa fa-sign-out btn-logout nav-item nav-link active" onClick={this.handleLogout}></i>
-          </div>
-        </div>
-      </nav>
+        <BottomNavigation
+          showLabels
+          className={classes.root}
+        >
+          <BottomNavigationAction label="Home" icon={<HomeIcon />} href="/home" className={classes.navStyle} />
+          <BottomNavigationAction label="Profile" icon={<ProfileIcon />} href="/profile" className={classes.navStyle} />
+          <BottomNavigationAction label="Sign Out" icon={<SignOutIcon />} onClick={this.handleLogout} />
+        </BottomNavigation> 
       </Fragment>
   )
   }

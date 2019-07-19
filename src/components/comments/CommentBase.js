@@ -3,6 +3,8 @@ import CommentForm from './CommentForm';
 import CommentList from './CommentList';
 import CommentService from '../../services/CommentService';
 import PostDetail from '../posts/PostDetail';
+import NavBar from '../misc/NavBar'
+
 
 
 class CommentBase extends React.Component{
@@ -33,20 +35,22 @@ class CommentBase extends React.Component{
         this.fetchPosts()
     }
 
-
     render(){
         return(
-            <div className="CommentBase container bg-light shadow">
+            <div style={{height: '100vh'}}>
+                <div className="CommentBase bg-light shadow">
                 <PostDetail {...this.props}/>
                 <div className='row'>
-                    <div className='col-4 pt-3 border-right'>
+                    <div className='col-5 pt-3'>
                         <h6>Comment on Post</h6>
                         <CommentForm {...this.props} addComment={this.addComment} />
                     </div>
-                    <div className='col-8 pt-3 bg-white'>
+                    <div className='col-6 pt-3 bg-white commentBox'>
                         <CommentList comments={this.state.comments} />
                     </div>
                 </div>
+                </div>
+                <NavBar />
             </div>
         )
     }

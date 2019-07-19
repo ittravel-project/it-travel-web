@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import FormField from '../misc/FormField';
 import PostService from '../../services/PostService'
 import { withAuthConsumer } from '../../contexts/AuthStore';
+import NavBar from '../misc/NavBar';
 
 const validators={
     title: value => value.length > 3,
@@ -108,13 +109,14 @@ class CreatePost extends React.Component {
             return <Redirect to='/home' />
         }
 
-        const {user, data,errors,touch}=this.state
+        const { data,errors,touch }=this.state
         const hasErrors=Object.values(errors).some(el => el === true)
         
         return (
-            <article className='CreatePost'>
-
-                <form onSubmit={this.handleSubmit}>
+            <div className='CreatePost'>
+                <div className="createPostContainer">
+                <h1 className="share">Share Your Experience</h1>
+                <form onSubmit={this.handleSubmit} className="formControl">
                     <FormField
                     label='Title'
                     name="title"
@@ -122,16 +124,16 @@ class CreatePost extends React.Component {
                     value={data.title}
                     onChange={this.handleChange}
                     touch={touch.title}
-                    error={errors.title}
                     inputType='text'
                     validationsClassName={this.getValidationsClassName('title')}
                     />
 
                     <FormField
-                    label='Creater'
+                    label="Creator"
                     name={this.props.user.name}
                     value={this.props.user.name}
                     placeholder={this.props.user.name}
+                    // type='hidden'
                     />
 
                     <FormField
@@ -172,7 +174,9 @@ class CreatePost extends React.Component {
                     className={`btn ${hasErrors ? 'btn-danger' : 'btn-success'}`}
                     disabled={hasErrors}>Submit</button>
                 </form>
-            </article>
+                </div>
+            <NavBar />
+            </div>
             
         )
     }

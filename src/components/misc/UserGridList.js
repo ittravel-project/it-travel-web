@@ -48,7 +48,9 @@ class UserGridList extends React.Component {
               <GridList cellHeight={180} className={classes.gridList}>
                 <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
                 </GridListTile>
-                {this.state.users.map(user => (
+                {this.state.users
+                  .sort ((a, b) => a.name.localeCompare(b.name))
+                    .map(user => (
                   <GridListTile key={user.img}>
                     <img src={user.avatar ? URL.createObjectURL(user.avatar) : user.avatarURL} alt={user.title} />
                     <GridListTileBar
