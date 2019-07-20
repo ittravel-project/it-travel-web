@@ -77,7 +77,6 @@ class Profile extends React.Component {
           <div>
             <h1 className="shadow"><b>Description:</b> {user.description}</h1>
           </div>
-          {/* <hr /> */}
         </div>
         <div className="col-12 pt-2 text-center ActivityFeedTitle">
           <h2>Activity Feed</h2>
@@ -90,7 +89,7 @@ class Profile extends React.Component {
                    <Typography className="cardTitle" color="textSecondary" gutterBottom>
                    {post && post.title}
                    </Typography>
-                   <Link className="card-title" to={post && `/posts/${post.id}/comments`}><img  src={post && post.attachment} alt="" width="100%"></img></Link>           
+                   <Link className="card-title" to={post && `/posts/${post.id}/comments`}><img  src={post && post.attachment} alt="" className="card-title-img"></img></Link>           
                      <Typography variant="body2" component="p">
                    </Typography>
                  </CardContent>

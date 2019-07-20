@@ -17,7 +17,7 @@ class Post extends React.Component {
   }
  
   render(){
-    const { post, isDelete, isFavorite } = this.props
+    const { post, isDelete } = this.props
 
     return (
    <div className="card mb-4" style={{ maxWidth: 600, maxHeight: 750}}>
@@ -32,16 +32,6 @@ class Post extends React.Component {
 
         {isDelete && (  
           <button className="btn btn-danger btn-sm" onClick={this.handleDelete}>Delete</button>
-        )}
-
-
-        {!isFavorite && (
-          <div className="d-flex justify-content-between">
-            <a href="#"
-              className="card-link">
-            </a>
-            <button className="card-link btn btn-sm btn-primary" onClick={() => { this.props.addToFavorite(post) }}>Favorite</button>
-          </div>
         )}
        
      </div>

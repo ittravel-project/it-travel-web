@@ -103,7 +103,6 @@ const Home = () => {
             >
             <Tab label="Destinations" className={classes.tabStyle} />
             <Tab label="Travelers" className={classes.tabStyle} />
-            {/* <Tab label="Favorites" /> */}
             </Tabs>
         </AppBar>
         <SwipeableViews
@@ -119,8 +118,6 @@ const Home = () => {
             <TabContainer dir={theme.direction}>
               <UserGridList />
             </TabContainer>
-{/* 
-            <TabContainer dir={theme.direction}>Item Three</TabContainer> */}
 
         </SwipeableViews>
         {fabs.map((fab, index) => (

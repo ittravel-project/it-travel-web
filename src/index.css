@@ -202,6 +202,9 @@ code {
   .cardTitle{
     font-size: 20px !important;
   }
+  .card-title-img {
+    width: 100%;
+  }
   .ProfileEdit{
     background-color: rgb(242, 235, 202);
     overflow-x: hidden;
@@ -223,20 +226,17 @@ code {
   }
 }
 
-/*MIN WIDTH: 415PX - MAX WIDTH: 768PX*/
-@media only screen and (min-width: 415px) and (max-width: 768px) {
-  .profile-pic {
-    display: inline;
-    margin: 0 auto;
-  }
+/*MIN WIDTH: 415PX - MAX WIDTH: 520X*/
+@media only screen and (min-width: 415px) and (max-width: 520px) {
   .app-name{
-    margin-bottom: 200%;
+    margin-bottom: 180%;
     text-shadow: 0 2px 17px rgba(224, 226, 230, 0.67);
     font-weight: bold;
+    font-size: 3.5rem;
   }
   .slider-img{
     width: 100%;
-    height: 730px;
+    height: 100vh;
   }
   .slider-text{
     margin-bottom: 70%;
@@ -247,7 +247,7 @@ code {
     color: white;
     border: 2px solid white;
     border-radius: 25%;
-    padding: 3% 10%;
+    padding: 5% 12%;
     margin-bottom: 5%;
   }
   .signup-btn{
@@ -256,27 +256,402 @@ code {
     margin-left: 6%;
     border: 2px solid white;
     border-radius: 25%;
-    padding: 3% 9%;
+    padding: 5% 11%;
     margin-bottom: 1%;
   }
-  .buttons{
+  .main-buttons{
     color: white;
     font-size: 1rem;
+    font-weight: bold;
   }
   .login-container {
     width: 40%;
   } 
+  .login-title {
+    margin-left: 5%;
+  }
+   .login-button{
+    margin-left: 35%;
+  }
+   .login-icons {
+    width: 40px;
+  }
   .register-icons {
     width: 40px;
   }
-
-  .login-icons {
-    width: 40px;
+  .register-title {
+    margin-left: 5%;
   }
   .register-button{
     margin-left: 28%;
   }
-  .login-button{
-    margin-left: 35%;
+  .home-top-image {
+    width: 100%;
+    height: 22%;
+  }
+  .CreatePost {
+    background-color: rgb(242, 235, 202);
+  }
+  .share{
+    font-size: 1.6rem;
+    padding-top: 8%;
+    font-weight: bold;
+    color: rgb(16, 50, 111);
+
+  }
+  .createPostContainer {
+    width: 92%;
+    margin-left: 4%;
+    padding-bottom: 5%;
+  }
+  .formControl {
+    height: 50%;
+    color: rgb(47, 142, 140);
+  }
+  .PostDetail{
+    background-color: rgb(242, 235, 202);
+  }
+  .postPageImage{
+    width: 100%;
+    height: 180px;
+  }
+  .CommentBase{
+    padding-left: 3%;
+    padding-right: 3%;
+    overflow-x: hidden;
+    height: 91%;
+    background-color: rgb(242, 235, 202);
+  }
+  .CommentBase-header h1{
+    font-size: 25px;
+    color: rgb(16, 50, 111);
+    font-weight: bold;
+  }
+  .CommentBase-header p{
+    font-size: 15px;
+    color: rgb(16, 50, 111);
+  }
+  .commentPostHeader{
+    color: rgb(16, 50, 111);
+  }
+  .post-city{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .CommentForm {
+    margin-top: 2px;
+  }
+  .commentBox{
+    overflow-y: scroll;
+    height: 210px;
+  }
+  .postDescriptionScroll {
+    overflow-y: scroll;
+    height: 130px;
+  }
+  .commentTextBox small {
+    font-size: 9px;
+  }
+  .commentTextBox h1 {
+    font-size: 10px
+  }
+  .FormField {
+    margin: 0;
+  }
+  .CodeMirror {
+    min-height: 150px !important;
+  }
+  .CodeMirror-scroll{
+    min-height: 100px !important;
+  }
+  .Profile{
+    background-color: rgb(183, 214, 229);
+  }
+  .profileEditButton {
+    width: 100%;
+    color: rgb(16, 50, 111) !important;
+    font-weight: bold !important;
+    padding: 5% 12%;
+    margin-bottom: 5%;
+  }
+  .Profile h1{
+    font-size: 15px;
+  }
+  .Profile h2{
+    font-size: 25px;
+    color: rgb(16, 50, 111);
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+  .profileInfo{
+    height: 60%;
+  }
+  .ActivityFeed{
+    background-color: rgb(242, 235, 202);
+    height: 260px;
+    overflow-y: scroll;
+  }
+  .ActivityFeedTraveler{
+    background-color: rgb(242, 235, 202);
+    height: 300px;
+    overflow-y: scroll;
+  }
+  .ActivityFeedTitle{
+    background-color: rgb(242, 235, 202);
+    padding-bottom: 0;
+    margin-top: 3%;
+  }
+  .postSizing{
+    width: 90%;
+    height: 180px;
+  }
+  .activityFeedCard{
+    width: 60%;
+    height: 240px;
+    margin-bottom: 3%;
+    margin-top: 0;
+    margin-left: 20%;
+  }
+ 
+  .cardTitle{
+    font-size: 20px !important;
+  }
+  .card-title-img {
+    width: 80%;
+  }
+  .ProfileEdit{
+    background-color: rgb(242, 235, 202);
+    overflow-x: hidden;
+  }
+  .profileContainer{
+    width: 92%;
+    margin-left: 4%;
+    padding-bottom: 5%;
+  }
+  .profileEditForm{
+    height: 600px;
+    color: rgb(47, 142, 140);
+  }
+  .ProfileEdit label{
+    margin-bottom: 1px;
+  }
+  .formSpacing {
+    margin-bottom: 1% !important;
+  }
+}
+
+
+/*MIN WIDTH: 521PX - MAX WIDTH: 768X*/
+@media only screen and (min-width: 521px) and (max-width: 768px) {
+  .app-name{
+    margin-bottom: 180%;
+    text-shadow: 0 2px 17px rgba(224, 226, 230, 0.67);
+    font-weight: bold;
+    font-size: 3.5rem;
+  }
+  .slider-img{
+    width: 100%;
+    height: 100vh;
+  }
+  .slider-text{
+    margin-bottom: 70%;
+    color: green;
+  }
+  .login-btn{
+    width: 55%;
+    color: white;
+    border: 2px solid white;
+    border-radius: 25%;
+    padding: 5% 12%;
+    margin-bottom: 5%;
+  }
+  .signup-btn{
+    width: 25%;
+    color: white;
+    margin-left: 6%;
+    border: 2px solid white;
+    border-radius: 25%;
+    padding: 5% 11%;
+    margin-bottom: 1%;
+  }
+  .main-buttons{
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  .login-container {
+    width: 40%;
   } 
+  .login-title {
+    margin-left: 5%;
+  }
+   .login-button{
+    margin-left: 35%;
+  }
+   .login-icons {
+    width: 40px;
+  }
+  .register-icons {
+    width: 40px;
+  }
+  .register-title {
+    margin-left: 5%;
+  }
+  .register-button{
+    margin-left: 28%;
+  }
+  .home-top-image {
+    width: 100%;
+    height: 22%;
+  }
+  .CreatePost {
+    background-color: rgb(242, 235, 202);
+  }
+  .share{
+    font-size: 1.6rem;
+    padding-top: 8%;
+    font-weight: bold;
+    color: rgb(16, 50, 111);
+
+  }
+  .createPostContainer {
+    width: 92%;
+    margin-left: 4%;
+    padding-bottom: 5%;
+  }
+  .formControl {
+    height: 50%;
+    color: rgb(47, 142, 140);
+  }
+  .PostDetail{
+    background-color: rgb(242, 235, 202);
+  }
+  .postPageImage{
+    width: 100%;
+    height: 180px;
+  }
+  .CommentBase{
+    padding-left: 3%;
+    padding-right: 3%;
+    overflow-x: hidden;
+    height: 88%;
+    background-color: rgb(242, 235, 202);
+  }
+  .CommentBase-header h1{
+    font-size: 25px;
+    color: rgb(16, 50, 111);
+    font-weight: bold;
+  }
+  .CommentBase-header p{
+    font-size: 15px;
+    color: rgb(16, 50, 111);
+  }
+  .commentPostHeader{
+    color: rgb(16, 50, 111);
+  }
+  .post-city{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .CommentForm {
+    margin-top: 2px;
+  }
+  .commentBox{
+    overflow-y: scroll;
+    height: 210px;
+  }
+  .postDescriptionScroll {
+    overflow-y: scroll;
+    height: 130px;
+  }
+  .commentTextBox small {
+    font-size: 9px;
+  }
+  .commentTextBox h1 {
+    font-size: 10px
+  }
+  .FormField {
+    margin: 0;
+  }
+  .CodeMirror {
+    min-height: 150px !important;
+  }
+  .CodeMirror-scroll{
+    min-height: 100px !important;
+  }
+  .Profile{
+    background-color: rgb(183, 214, 229);
+  }
+  .profileEditButton {
+    width: 100%;
+    color: rgb(16, 50, 111) !important;
+    font-weight: bold !important;
+    padding: 5% 12%;
+    margin-bottom: 5%;
+  }
+  .Profile h1{
+    font-size: 15px;
+  }
+  .Profile h2{
+    font-size: 25px;
+    color: rgb(16, 50, 111);
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+  .profileInfo{
+    height: 60%;
+  }
+  .ActivityFeed{
+    background-color: rgb(242, 235, 202);
+    height: 280px;
+    overflow-y: scroll;
+  }
+  .ActivityFeedTraveler{
+    background-color: rgb(242, 235, 202);
+    height: 340px;
+    overflow-y: scroll;
+  }
+  .ActivityFeedTitle{
+    background-color: rgb(242, 235, 202);
+    padding-bottom: 0;
+    margin-top: 3%;
+  }
+  .postSizing{
+    width: 90%;
+    height: 180px;
+  }
+  .activityFeedCard{
+    width: 50%;
+    height: 240px;
+    margin-bottom: 3%;
+    margin-top: 0;
+    margin-left: 23%;
+  }
+  .cardTitle{
+    font-size: 20px !important;
+  }
+  .card-title-img {
+    width: 60%;
+  }
+  .ProfileEdit{
+    background-color: rgb(242, 235, 202);
+    overflow-x: hidden;
+  }
+  .profileContainer{
+    width: 92%;
+    margin-left: 4%;
+    padding-bottom: 5%;
+  }
+  .profileEditForm{
+    height: 630px;
+    color: rgb(47, 142, 140);
+  }
+  .ProfileEdit label{
+    margin-bottom: 1px;
+  }
+  .formSpacing {
+    margin-bottom: 1% !important;
+  }
 }

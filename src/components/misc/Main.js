@@ -25,7 +25,7 @@ const Main = () => {
               <Carousel.Item>
                 <img
                   className="d-block slider-img"
-                  src="https://images.unsplash.com/photo-1531778456116-a2c5c972d75f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                  src="https://images.unsplash.com/photo-1530569112985-108dc2578ec2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80"
                   alt="Second slide"
                 />
 
@@ -36,7 +36,7 @@ const Main = () => {
               <Carousel.Item>
                 <img
                   className="d-block slider-img"
-                  src="https://images.unsplash.com/photo-1533854257392-71c5ff28dff7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=633&q=80"
+                  src="https://images.unsplash.com/photo-1503891450247-ee5f8ec46dc3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
                   alt="Third slide"
                 />
 

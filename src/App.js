@@ -11,7 +11,6 @@ import CreatePost from './components/posts/CreatePost';
 import PostsBase from './components/posts/PostBase';
 import CommentBase from './components/comments/CommentBase';
 import Traveler from './components/auth/Traveler'
-import FavoriteGridList from './components/misc/FavoriteGridList';
 
 
 class App extends React.Component {
@@ -31,7 +30,6 @@ class App extends React.Component {
           <PrivateRoute exact path='/home' component={Home} />
           <PrivateRoute exact path='/posts/:postId/comments' component ={CommentBase} />
           <PrivateRoute exact path='/profile/:userId' component ={Traveler} />
-          <PrivateRoute exact path='/favorites' component ={FavoriteGridList} />
 
 
         </Switch>

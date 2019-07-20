@@ -109,6 +109,7 @@ class Register extends Component {
 
     return (
       <div className="container mt-5 login-container">
+        <Link to="/"><i className="fa fa-chevron-left"></i></Link>
         <div className="row justify-content-md-center">
           <div className="col-xs-12 col-sm-12 col-md-4 login">
             <h3 className="register-title">Let's Start Traveling   <i className="fa fa-bicycle"></i></h3>
@@ -118,33 +119,33 @@ class Register extends Component {
                   <div className="input-group-prepend">
                     <div className="input-group-text register-icons"><i className="fa fa-user"></i></div>
                   </div>
-                  <input type="text" name="name" className={`form-control ${touch.name && errors.name ? 'is-invalid' : ''}`} onChange={this.handleChange} onBlur={this.handleBlur} value={user.name} placeholder="Username" />
+                  <input type="text" name="name" className={`shadow form-control ${touch.name && errors.name ? 'is-invalid' : ''}`} onChange={this.handleChange} onBlur={this.handleBlur} value={user.name} placeholder="Username" />
                   <div className="invalid-feedback">{ errors.name }</div>
                 </div>
                 <div className="input-group mb-2">
                   <div className="input-group-prepend">
                       <div className="input-group-text register-icons"><i className="fa fa-map"></i></div>
                   </div>
-                  <input type="city" name="city" className={`form-control ${touch.city && errors.city ? 'is-invalid' : ''}`} onChange={this.handleChange} onBlur={this.handleBlur} value={user.city} placeholder="City" />
+                  <input type="city" name="city" className={`shadow form-control ${touch.city && errors.city ? 'is-invalid' : ''}`} onChange={this.handleChange} onBlur={this.handleBlur} value={user.city} placeholder="City" />
                   <div className="invalid-feedback">{ errors.city }</div>
                 </div>
                 <div className="input-group mb-2">
                   <div className="input-group-prepend">
                     <div className="input-group-text register-icons"><i className="fa fa-envelope"></i></div>
                   </div>
-                  <input type="email" name="email" className={`form-control ${touch.email && errors.email ? 'is-invalid' : ''}`}  onChange={this.handleChange} onBlur={this.handleBlur} value={user.email} placeholder="Email"/>
+                  <input type="email" name="email" className={`shadow form-control ${touch.email && errors.email ? 'is-invalid' : ''}`}  onChange={this.handleChange} onBlur={this.handleBlur} value={user.email} placeholder="Email"/>
                   <div className="invalid-feedback">{ errors.email }</div>
                 </div>
                 <div className="input-group mb-2">
                   <div className="input-group-prepend">
                     <div className="input-group-text register-icons"><i className="fa fa-lock"></i></div>
                   </div>
-                  <input type="password" name="password" className={`form-control ${touch.password && errors.password ? 'is-invalid' : ''}`} onChange={this.handleChange} onBlur={this.handleBlur} value={user.password} placeholder="Password" />
+                  <input type="password" name="password" className={`shadow form-control ${touch.password && errors.password ? 'is-invalid' : ''}`} onChange={this.handleChange} onBlur={this.handleBlur} value={user.password} placeholder="Password" />
                   <div className="invalid-feedback">{ errors.password }</div>
                 </div>
               </div>
               <div className="col-6 register-button">
-                <button className="btn btn-primary" form="register-form" type="submit" disabled={!this.isValid()}>Create Account</button>
+                <button className="btn btn-primary shadow" form="register-form" type="submit" disabled={!this.isValid()}>Create Account</button>
               </div>
             </form>
             <hr />
