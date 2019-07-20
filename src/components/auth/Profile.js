@@ -5,7 +5,14 @@ import NavBar from '../misc/NavBar';
 import Post from '../posts/Post';
 import PostService from '../../services/PostService';
 import { Link } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
+const defaultPic = 'http://ecuciencia.utc.edu.ec/media/foto/default-user_x5fGYax.png'
 
 class Profile extends React.Component {
   state = {
@@ -15,8 +22,9 @@ class Profile extends React.Component {
         description: '',
         email: '',
         password: '',
-        avatarURL: 'http://ecuciencia.utc.edu.ec/media/foto/default-user_x5fGYax.png',
-        avatar: ''
+        avatarURL: '',
+        avatar: '',
+        descriptionPlaceholder: 'Write something about yourself'
     },
     posts: []
   }
@@ -27,7 +35,7 @@ class Profile extends React.Component {
   }
 
   fetchPosts = () => {
-    PostService.getPosts({ creater: this.state.user.id }).then(
+    PostService.getPosts({ creater: this.props.user.id }).then(
       response => {
         this.setState({ posts: response.data })
       }
@@ -46,34 +54,52 @@ class Profile extends React.Component {
   render() {
     const { user } =  this.state;
 
+
+    const classes = makeStyles({
+      card: {
+        minWidth: 100,
+      }
+    });
+
     return (
-      <div className="box mx-auto">
-       <div className='Home-image'>
-          <img src='https://img.jakpost.net/c/2018/01/11/2018_01_11_38768_1515668901._large.jpg' alt="" width='420px' height='200px'/>
-        </div>
-        <div className="col-6 pt-4 ">
-            <div>
-              <label htmlFor="avatar" className="avatar"><img src={user.avatar ? URL.createObjectURL(user.avatar) : user.avatarURL} className="rounded-circle mb-3 profile-pic" alt="Cinque Terre" width="304" height="236"/></label>
+      <div className="box mx-auto Profile">
+        <div className="col-12 pt-4 text-center profileInfo">
+            <div className="pl-3">
+              <label htmlFor="avatar"><img src={user.avatarURL || defaultPic} className="rounded-circle mb-3" alt="Cinque Terre" width="200" height="150"/></label>
             </div>
-            <Link to="/profile/edit" className="btn btn-primary">Edit Profile</Link>
+              <Link to="/profile/edit" className="btn btn-light  shadow profileEditButton">Edit Profile</Link>
           <div>
-            <h1>Username</h1>
-            <p>{user.name}</p>
+            <h1 className="shadow"><b>Username:</b>{user.name} </h1>
           </div>
           <div>
-            <h1>City</h1>
-            <p>{user.city}</p>
+            <h1 className="shadow"><b>City:</b> {user.city}</h1>
           </div>
           <div>
-            <h1>Description</h1>
-            <p>{user.description}</p>
+            <h1 className="shadow"><b>Description:</b> {user.description}</h1>
           </div>
+          {/* <hr /> */}
         </div>
-        <div>
-            <h1>Activity Feed</h1>
+        <div className="col-12 pt-2 text-center ActivityFeedTitle">
+          <h2>Activity Feed</h2>
+      </div>
+        <div className="col-12 pt-2 text-center ActivityFeed"> 
 
             {this.state.posts.map((post, i) => (
-                <Post post={post} key={i} onClick={this.deletePost} isDelete/>
+                 <Card className="activityFeedCard ">
+                 <CardContent>
+                   <Typography className="cardTitle" color="textSecondary" gutterBottom>
+                   {post && post.title}
+                   </Typography>
+                   <Link className="card-title" to={post && `/posts/${post.id}/comments`}><img  src={post && post.attachment} alt="" width="100%"></img></Link>           
+                     <Typography variant="body2" component="p">
+                   </Typography>
+                 </CardContent>
+                 <CardActions>
+                     <Button color="secondary" className={classes.button} size="small">
+                     Delete
+                     </Button>                   
+                 </CardActions>
+               </Card>
               ))}  
             
           </div>

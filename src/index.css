@@ -18,18 +18,6 @@ code {
 
 /*MIN WIDTH: 320PX - MAX WIDTH: 414PX*/
 @media only screen and (min-width: 320px) and (max-width: 414px) {
-  .image-cropper {
-    width: 55%;
-    height: 30%;
-    position: relative;
-    overflow: hidden;
-    border-radius: 50%;
-    border: solid rgb(87, 83, 83);
-  }
-  .profile-pic {
-    display: inline;
-    margin: 0 auto;
-  }
   .app-name{
     margin-bottom: 190%;
     text-shadow: 0 2px 17px rgba(224, 226, 230, 0.67);
@@ -92,12 +80,14 @@ code {
     height: 22%;
   }
   .CreatePost {
-    background-color: #dff0ea;
+    background-color: rgb(242, 235, 202);
   }
   .share{
     font-size: 1.6rem;
     padding-top: 8%;
     font-weight: bold;
+    color: rgb(16, 50, 111);
+
   }
   .createPostContainer {
     width: 92%;
@@ -106,25 +96,49 @@ code {
   }
   .formControl {
     height: 50%;
+    color: rgb(47, 142, 140);
+  }
+  .PostDetail{
+    background-color: rgb(242, 235, 202);
   }
   .postPageImage{
     width: 100%;
     height: 180px;
-    margin-top: 5%;
   }
   .CommentBase{
     padding-left: 3%;
     padding-right: 3%;
     overflow-x: hidden;
-    height: 90%;
+    height: 91%;
+    background-color: rgb(242, 235, 202);
+  }
+  .CommentBase-header h1{
+    font-size: 25px;
+    color: rgb(16, 50, 111);
+    font-weight: bold;
+  }
+  .CommentBase-header p{
+    font-size: 15px;
+    color: rgb(16, 50, 111);
+  }
+  .commentPostHeader{
+    color: rgb(16, 50, 111);
+  }
+  .post-city{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .CommentForm {
+    margin-top: 2px;
   }
   .commentBox{
     overflow-y: scroll;
-    height: 220px;
+    height: 210px;
   }
   .postDescriptionScroll {
     overflow-y: scroll;
-    height: 150px;
+    height: 130px;
   }
   .commentTextBox small {
     font-size: 9px;
@@ -141,25 +155,80 @@ code {
   .CodeMirror-scroll{
     min-height: 100px !important;
   }
+  .Profile{
+    background-color: rgb(183, 214, 229);
+  }
+  .profileEditButton {
+    width: 100%;
+    color: rgb(16, 50, 111) !important;
+    font-weight: bold !important;
+    padding: 5% 12%;
+    margin-bottom: 5%;
+  }
+  .Profile h1{
+    font-size: 15px;
+  }
+  .Profile h2{
+    font-size: 25px;
+    color: rgb(16, 50, 111);
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+  .profileInfo{
+    height: 60%;
+  }
+  .ActivityFeed{
+    background-color: rgb(242, 235, 202);
+    height: 250px;
+    overflow-y: scroll;
 
-
+  }
+  .ActivityFeedTitle{
+    background-color: rgb(242, 235, 202);
+    padding-bottom: 0;
+    margin-top: 3%;
+  }
+  .postSizing{
+    width: 90%;
+    height: 180px;
+  }
+  .activityFeedCard{
+    width: 60%;
+    height: 240px;
+    margin-bottom: 3%;
+    margin-top: 0;
+    margin-left: 20%;
+  }
+  .cardTitle{
+    font-size: 20px !important;
+  }
+  .ProfileEdit{
+    background-color: rgb(242, 235, 202);
+    overflow-x: hidden;
+  }
+  .profileContainer{
+    width: 92%;
+    margin-left: 4%;
+    padding-bottom: 5%;
+  }
+  .profileEditForm{
+    height: 50%;
+    color: rgb(47, 142, 140);
+  }
+  .ProfileEdit label{
+    margin-bottom: 1px;
+  }
+  .formSpacing {
+    margin-bottom: 1% !important;
+  }
 }
 
 /*MIN WIDTH: 415PX - MAX WIDTH: 768PX*/
 @media only screen and (min-width: 415px) and (max-width: 768px) {
-  .image-cropper {
-    width: 55%;
-    height: 30%;
-    position: relative;
-    overflow: hidden;
-    border-radius: 50%;
-    border: solid rgb(87, 83, 83);
-  }
   .profile-pic {
     display: inline;
     margin: 0 auto;
   }
-
   .app-name{
     margin-bottom: 200%;
     text-shadow: 0 2px 17px rgba(224, 226, 230, 0.67);
@@ -173,7 +242,6 @@ code {
     margin-bottom: 70%;
     color: green;
   }
-
   .login-btn{
     width: 55%;
     color: white;

@@ -166,7 +166,7 @@ class CreatePost extends React.Component {
                         value={data.message}
                         onChange={this.handleContentChange}
                         options={{
-                            toolbar: ["bold", "italic", "heading", "|", "quote", "unordered-list", "ordered-list", "|", "link", "preview", "side-by-side", "fullscreen"]
+                            toolbar: ["bold", "italic", "heading-3", "|", "quote", "unordered-list", "ordered-list", "|", "link", "preview", "side-by-side", "fullscreen"]
                         }}
                     />
 

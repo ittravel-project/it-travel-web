@@ -26,16 +26,17 @@ class PostDetail extends React.Component {
         return (
             <article className="PostDetail">
                  <header className="CommentBase-header">
+                     <h1>{this.state.post.title}</h1>
                     <img src={this.state.post.attachment} alt='logo' className="postPageImage"/>
-                    <p>{this.state.post.city}</p>
+                    <p className="post-city">{this.state.post.city}</p>
                     <div className="postDescriptionScroll">
                         <ReactMarkdown
                         source={this.state.post.message}
                         escapeHtml={false}
                         />
                     </div>
-                  
                 </header>
+                <hr />
             </article>
         )
     }

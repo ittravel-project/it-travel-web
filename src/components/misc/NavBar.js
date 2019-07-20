@@ -20,7 +20,8 @@ class NavBar extends React.Component{
     const classes = makeStyles({
       root: {
         width: 500,
-        height: 200
+        height: 200,
+        
       },
       navStyle: {
         textDecoration: "none",

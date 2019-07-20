@@ -4,6 +4,7 @@ import {withAuthConsumer} from '../../contexts/AuthStore'
 import authService from '../../services/AuthService'
 import NavBar from '../misc/NavBar';
 
+const defaultPic = 'http://ecuciencia.utc.edu.ec/media/foto/default-user_x5fGYax.png'
 
 
 const validations = {
@@ -38,10 +39,11 @@ class ProfileEdit extends React.Component {
         description: '',
         email: '',
         password: '',
-        avatarURL: 'http://ecuciencia.utc.edu.ec/media/foto/default-user_x5fGYax.png',
+        avatarURL: '',
         avatar: ''
     },
     errors: {},
+    goToProfile: false,
     touch: {}
   }
 
@@ -74,7 +76,7 @@ class ProfileEdit extends React.Component {
     if (this.isValid()) {
       authService.updateProfile(this.state.user)
         .then(
-          (user) => this.setState({ user: {...this.state.user, ...user} }),
+          (user) => this.setState({ user: {...this.state.user, ...user}, goToProfile: true }),
           (error) => {
             const { message, errors } = error.response.data;
             this.setState({
@@ -106,41 +108,45 @@ class ProfileEdit extends React.Component {
   render() {
     const { errors, user, touch } =  this.state;
 
+    if (this.state.goToProfile) {
+        return <Redirect to='/profile' />
+    }
+
     return (
-      <div className="box mx-auto">
-        <div className="row">
-          <div className="col-6">
-            <form id="profile-form" className="mt-4" onSubmit={this.handleSubmit}>
+      <div className="box mx-auto ProfileEdit">
+        <div className="text-center profileContainer">
+          <div className="col-9 ml-5 ">
+            <form id="profile-form" className="mt-3 profileEditForm" onSubmit={this.handleSubmit}>
             
-            <div className="col-6 pt-4">
-              <label htmlFor="avatar" className="avatar"><img src={user.avatar ? URL.createObjectURL(user.avatar) : user.avatarURL} className="rounded-circle mb-3" alt="Cinque Terre" width="304" height="236" /></label>
-              <input type="file" id="avatar" name="avatar" onChange={this.handleChange} />
+            <div className="col-6 pt-1">
+              <label htmlFor="avatar" ><img src={user.avatar ? URL.createObjectURL(user.avatar) : defaultPic} className="rounded-circle mb-3 " alt="Cinque Terre" width="200" height="150" /></label>
+              <input type="file" id="avatar" name="avatar" onChange={this.handleChange}  />
           </div>
-            <div className="form-group">
+            <div className="form-group mt-3 formSpacing">
                 <label>Username</label>
-                <input type='text' className={`form-control ${touch.name && errors.name ? 'is-invalid' : ''}`} name="name" onChange={this.handleChange} onBlur={this.handleBlur} value={user.name} />
+                <input type='text' className={`shadow form-control ${touch.name && errors.name ? 'is-invalid' : ''}`} name="name" onChange={this.handleChange} onBlur={this.handleBlur} value={user.name} />
                 <div className="invalid-feedback">{ errors.name }</div>
               </div>
-            <div className="form-group">
+            <div className="form-group formSpacing">
                 <label>City</label>
-                <input type='text' className={`form-control ${touch.city && errors.city ? 'is-invalid' : ''}`} name="city" onChange={this.handleChange} onBlur={this.handleBlur} value={user.city} />
+                <input type='text' className={`shadow form-control ${touch.city && errors.city ? 'is-invalid' : ''}`} name="city" onChange={this.handleChange} onBlur={this.handleBlur} value={user.city} />
                 <div className="invalid-feedback">{ errors.city }</div>
               </div>
-              <div className="form-group">
+              <div className="form-group formSpacing">
                 <label>Description</label>
-                <input type='text' className={`form-control ${touch.description && errors.description ? 'is-invalid' : ''}`} name="description" onChange={this.handleChange} onBlur={this.handleBlur} value={user.description} />
+                <input type='text' className={`shadow form-control ${touch.description && errors.description ? 'is-invalid' : ''}`} name="description" onChange={this.handleChange} onBlur={this.handleBlur} placeholder="Write something about yourself" value={user.description} />
                 <div className="invalid-feedback">{ errors.description }</div>
               </div>
-              <div className="form-group">
+              <div className="form-group formSpacing">
                 <label>Email</label>
-                <input type="email" name="email" className="form-control" value={user.email} disabled/>
+                <input type="email" name="email" className="shadow form-control" value={user.email} disabled/>
               </div>
-              <div className="form-group">
+              <div className="form-group formSpacing">
                 <label>Password</label>
-                <input type="password" name="password" className={`form-control ${touch.password && errors.password ? 'is-invalid' : ''}`} onChange={this.handleChange} onBlur={this.handleBlur} value={user.password} />
+                <input type="password" name="password" className={`shadow form-control ${touch.password && errors.password ? 'is-invalid' : ''}`} onChange={this.handleChange} onBlur={this.handleBlur} value={user.password} />
                 <div className="invalid-feedback">{ errors.password }</div>
               </div>
-              <button className="btn btn-primary" form="profile-form" type="submit" disabled={!this.isValid()}>Update profile</button>
+              <button className="btn btn-primary p-1 mt-3 shadow" form="profile-form" type="submit" disabled={!this.isValid()}>Update profile</button>
 
             </form>
           </div>

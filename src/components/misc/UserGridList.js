@@ -7,6 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 import { Link } from 'react-router-dom';
 import AuthService from '../../services/AuthService';
+import { withAuthConsumer } from '../../contexts/AuthStore';
 
 class UserGridList extends React.Component {
     state = {
@@ -49,6 +50,7 @@ class UserGridList extends React.Component {
                 <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
                 </GridListTile>
                 {this.state.users
+                  .filter((u) => u.id !== this.props.user.id)
                   .sort ((a, b) => a.name.localeCompare(b.name))
                     .map(user => (
                   <GridListTile key={user.img}>
@@ -77,4 +79,4 @@ class UserGridList extends React.Component {
 }
 
 
-export default UserGridList
+export default withAuthConsumer(UserGridList)

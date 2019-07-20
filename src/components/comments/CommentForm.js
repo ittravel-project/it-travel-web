@@ -92,7 +92,7 @@ class CommentForm extends React.Component {
           {this.renderError()}
 
           <div className="form-group pb-0">
-            <button disabled={this.state.loading} className="btn btn-primary p-2">
+            <button disabled={this.state.loading} className="btn btn-primary p-1">
               Comment ➤
             </button>
           </div>

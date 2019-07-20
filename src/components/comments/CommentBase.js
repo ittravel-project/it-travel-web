@@ -38,11 +38,11 @@ class CommentBase extends React.Component{
     render(){
         return(
             <div style={{height: '100vh'}}>
-                <div className="CommentBase bg-light shadow">
+                <div className="CommentBase shadow">
                 <PostDetail {...this.props}/>
-                <div className='row'>
-                    <div className='col-5 pt-3'>
-                        <h6>Comment on Post</h6>
+                <div className='row commentBackground'>
+                    <div className='col-5 '>
+                        <h6 className="commentPostHeader">Comment on Post</h6>
                         <CommentForm {...this.props} addComment={this.addComment} />
                     </div>
                     <div className='col-6 pt-3 bg-white commentBox'>

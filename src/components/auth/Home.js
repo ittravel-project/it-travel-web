@@ -9,11 +9,10 @@ import Typography from '@material-ui/core/Typography';
 import Zoom from '@material-ui/core/Zoom';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
-import { green } from '@material-ui/core/colors';
+// import { green } from '@material-ui/core/colors';
 import PostGridList from '../misc/PostGridList'
 import UserGridList from '../misc/UserGridList'
 import NavBar from '../misc/NavBar'
-
 
 
 
@@ -47,24 +46,21 @@ const useStyles = makeStyles(theme => ({
     right: theme.spacing(2),
     marginBottom: '15%'
   },
-  fabGreen: {
-    color: theme.palette.common.white,
-    backgroundColor: green[500],
-    '&:hover': {
-      backgroundColor: green[600],
-    }
-  },
   tabsStyle: {
-    backgroundColor: '#f7b71d'
+    backgroundColor: 'rgb(183, 214, 229)'
   },
   tabStyle: {
-    fontWeight: "bold"
+    fontWeight: "bold",
+    color: 'rgb(16, 50, 111)',
+    // borderTop: "2px solid"
+
   },
   swipeStyle: {
     overflowY: "scroll",
-  height: "59.5%",
-    // backgroundColor: "red"
-  }
+    height: "59.5%",
+    backgroundColor: "rgb(242, 235, 202)"
+  },
+
  
 }));
 
@@ -142,9 +138,8 @@ const Home = () => {
             </Fab>
             </Zoom>
         ))}
-
           <NavBar />
-        </div>
+      </div>
     );
 }
 
