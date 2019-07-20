@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "725047e82fd2d2fc3f233c236b88f7ba",
+    "revision": "8689e1e42132c1d3f2db4d21f56fa279",
     "url": "/ittravel-project/it-travel-web/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ittravel-project/it-travel-web/static/css/2.999a9761.chunk.css"
   },
   {
-    "revision": "f14437162207a4d2009b",
+    "revision": "85864c2dbb8295ec5b06",
     "url": "/ittravel-project/it-travel-web/static/css/main.eb500b8d.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ittravel-project/it-travel-web/static/js/2.1d9ce079.chunk.js"
   },
   {
-    "revision": "f14437162207a4d2009b",
-    "url": "/ittravel-project/it-travel-web/static/js/main.97c5bae1.chunk.js"
+    "revision": "85864c2dbb8295ec5b06",
+    "url": "/ittravel-project/it-travel-web/static/js/main.d4d6d609.chunk.js"
   },
   {
     "revision": "ca1a0bdf7986bd605540",
