@@ -34,7 +34,7 @@ class PostsList extends React.Component {
     return (
       <div>
         {this.state.posts.map((post, i) => (
-        <Post {...this.props} post={post} key={i} onClick={this.deletePost} onDeletePost={this.deletePost} />
+        <Post {...this.props} post={post} key={i} onClick={this.deletePost} onDeletePost={this.deletePost} isDelete />
         ))}
       </div>
     )

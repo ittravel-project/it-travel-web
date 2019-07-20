@@ -5,12 +5,6 @@ import NavBar from '../misc/NavBar';
 import Post from '../posts/Post';
 import PostService from '../../services/PostService';
 import { Link } from 'react-router-dom'
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 
 const defaultPic = 'http://ecuciencia.utc.edu.ec/media/foto/default-user_x5fGYax.png'
 
@@ -51,15 +45,16 @@ class Profile extends React.Component {
     this.fetchPosts()
   }
 
+  deletePost = (postId) => {
+    PostService.deletePost(postId).then(
+      response => {
+        this.fetchPosts()
+      }
+    )
+  }
+
   render() {
     const { user } =  this.state;
-
-
-    const classes = makeStyles({
-      card: {
-        minWidth: 100,
-      }
-    });
 
     return (
       <div className="box mx-auto Profile">
@@ -81,28 +76,12 @@ class Profile extends React.Component {
         <div className="col-12 pt-2 text-center ActivityFeedTitle">
           <h2>Activity Feed</h2>
       </div>
-        <div className="col-12 pt-2 text-center ActivityFeed"> 
-
-            {this.state.posts.map((post, i) => (
-                 <Card className="activityFeedCard ">
-                 <CardContent>
-                   <Typography className="cardTitle" color="textSecondary" gutterBottom>
-                   {post && post.title}
-                   </Typography>
-                   <Link className="card-title" to={post && `/posts/${post.id}/comments`}><img  src={post && post.attachment} alt="" className="card-title-img"></img></Link>           
-                     <Typography variant="body2" component="p">
-                   </Typography>
-                 </CardContent>
-                 <CardActions>
-                     <Button color="secondary" className={classes.button} size="small">
-                     Delete
-                     </Button>                   
-                 </CardActions>
-               </Card>
-              ))}  
-            
-          </div>
-          <NavBar />
+      <div className="col-12 pt-2 text-center ActivityFeed">
+        {this.state.posts.map((post, i) => (
+        <Post {...this.props} post={post} key={i} onClick={this.deletePost} onDeletePost={this.deletePost} isDelete isMessage />
+        ))}
+        </div>
+        <NavBar />
       </div>
     );
   }

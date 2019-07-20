@@ -181,7 +181,11 @@ code {
     background-color: rgb(242, 235, 202);
     height: 250px;
     overflow-y: scroll;
-
+  }
+  .ActivityFeedTraveler{
+    background-color: rgb(242, 235, 202);
+    height: 310px;
+    overflow-y: scroll;
   }
   .ActivityFeedTitle{
     background-color: rgb(242, 235, 202);
