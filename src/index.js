@@ -10,7 +10,7 @@ import { AuthStore } from './contexts/AuthStore';
 
 
 ReactDOM.render(
-<BrowserRouter>
+<BrowserRouter basename={process.env.PUBLIC_URL}>
     <AuthStore>
         <App />
     </AuthStore>
