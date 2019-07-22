@@ -12,7 +12,6 @@ const FormField = (props) => {
         inputType,
         validationClassName,
         isInput,
-        isHidden
     } = props
 
     const inputAttrs ={

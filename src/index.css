@@ -5,7 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* overflow: hidden; */
   height: 100%;
 }
 
@@ -92,7 +91,7 @@ code {
   .createPostContainer {
     width: 92%;
     margin-left: 4%;
-    padding-bottom: 5%;
+    padding-bottom: 3%;
   }
   .formControl {
     height: 50%;
@@ -109,7 +108,7 @@ code {
     padding-left: 3%;
     padding-right: 3%;
     overflow-x: hidden;
-    height: 91%;
+    height: 90.2%;
     background-color: rgb(242, 235, 202);
   }
   .CommentBase-header h1{
@@ -198,7 +197,7 @@ code {
   }
   .activityFeedCard{
     width: 60%;
-    height: 50%;
+    height: 70%;
     margin-bottom: 3%;
     margin-top: 0;
     margin-left: 20%;
@@ -446,10 +445,10 @@ code {
 }
 
 
-/*MIN WIDTH: 521PX - MAX WIDTH: 768X*/
+/*MIN WIDTH: 521PX - MAX WIDTH: 767X*/
 @media only screen and (min-width: 521px) and (max-width: 768px) {
   .app-name{
-    margin-bottom: 180%;
+    margin-bottom: 150%;
     text-shadow: 0 2px 17px rgba(224, 226, 230, 0.67);
     font-weight: bold;
     font-size: 3.5rem;
@@ -459,7 +458,7 @@ code {
     height: 100vh;
   }
   .slider-text{
-    margin-bottom: 70%;
+    margin-bottom: 55%;
     color: green;
   }
   .login-btn{
@@ -522,7 +521,7 @@ code {
   .createPostContainer {
     width: 92%;
     margin-left: 4%;
-    padding-bottom: 5%;
+    padding-bottom: 11%;
   }
   .formControl {
     height: 50%;
@@ -539,7 +538,7 @@ code {
     padding-left: 3%;
     padding-right: 3%;
     overflow-x: hidden;
-    height: 88%;
+    height: 87%;
     background-color: rgb(242, 235, 202);
   }
   .CommentBase-header h1{
@@ -609,12 +608,12 @@ code {
   }
   .ActivityFeed{
     background-color: rgb(242, 235, 202);
-    height: 280px;
+    height: 300px;
     overflow-y: scroll;
   }
   .ActivityFeedTraveler{
     background-color: rgb(242, 235, 202);
-    height: 340px;
+    height: 365px;
     overflow-y: scroll;
   }
   .ActivityFeedTitle{
@@ -628,7 +627,7 @@ code {
   }
   .activityFeedCard{
     width: 50%;
-    height: 50%;
+    height: 70%;
     margin-bottom: 3%;
     margin-top: 0;
     margin-left: 23%;
@@ -637,7 +636,7 @@ code {
     font-size: 20px !important;
   }
   .card-title-img {
-    width: 60%;
+    width: 70%;
   }
   .ProfileEdit{
     background-color: rgb(242, 235, 202);
@@ -646,7 +645,7 @@ code {
   .profileContainer{
     width: 92%;
     margin-left: 4%;
-    padding-bottom: 5%;
+    padding-bottom: 9%;
   }
   .profileEditForm{
     height: 630px;

@@ -1,6 +1,5 @@
 {
   "name": "it-travel-web",
-  "homepage": "https://github.com/ittravel-project/it-travel-web",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

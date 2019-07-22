@@ -2,13 +2,11 @@ import React from 'react'
 import NavBar from '../misc/NavBar';
 import AuthService from '../../services/AuthService';
 import PostService from '../../services/PostService'
-import Post from '../posts/Post';
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 
@@ -52,13 +50,6 @@ class User extends React.Component {
 
   render() {
     const { user } =  this.state;
-
-
-    const classes = makeStyles({
-      card: {
-        minWidth: 100,
-      }
-    });
 
     return (
       <div className="box mx-auto Profile">
