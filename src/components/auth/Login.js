@@ -122,8 +122,8 @@ class Login extends React.Component{
                 </div>
             </form>
               <hr />
-              <a href="/authenticate/google" className="btn btn-block btn-danger shadow"><i className="fa fa-google"></i>  Login with Google</a>
-              <a href="/authenticate/facebook" className="btn btn-block btn-primary shadow"><i className="fa fa-facebook-f"></i> Login with Facebook</a>
+              <a href="/authenticate/google/callback" className="btn btn-block btn-danger shadow"><i className="fa fa-google"></i>  Login with Google</a>
+              <a href="/authenticate/facebook/callback" className="btn btn-block btn-primary shadow"><i className="fa fa-facebook-f"></i> Login with Facebook</a>
               <p className="text-center">Not registered? <Link to="/register">Register</Link></p>
           </div>
         </div>
