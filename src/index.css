@@ -54,7 +54,7 @@ code {
     font-weight: bold;
   }
   .login-container {
-    width: 40%;
+    width: 90%;
   } 
   .login-title {
     margin-left: 5%;
@@ -161,7 +161,6 @@ code {
     width: 100%;
     color: rgb(16, 50, 111) !important;
     font-weight: bold !important;
-    padding: 5% 12%;
     margin-bottom: 5%;
   }
   .Profile h1{
@@ -268,7 +267,7 @@ code {
     font-weight: bold;
   }
   .login-container {
-    width: 40%;
+    width: 90%;
   } 
   .login-title {
     margin-left: 5%;
@@ -375,7 +374,6 @@ code {
     width: 100%;
     color: rgb(16, 50, 111) !important;
     font-weight: bold !important;
-    padding: 5% 12%;
     margin-bottom: 5%;
   }
   .Profile h1{
@@ -484,7 +482,7 @@ code {
     font-weight: bold;
   }
   .login-container {
-    width: 40%;
+    width: 90%;
   } 
   .login-title {
     margin-left: 5%;
@@ -591,7 +589,6 @@ code {
     width: 100%;
     color: rgb(16, 50, 111) !important;
     font-weight: bold !important;
-    padding: 5% 12%;
     margin-bottom: 5%;
   }
   .Profile h1{
