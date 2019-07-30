@@ -201,6 +201,9 @@ code {
     margin-top: 0;
     margin-left: 20%;
   }
+  .MuiTypography-body1{
+    line-height: 1 !important;
+  }
   .cardTitle{
     font-size: 20px !important;
   }
@@ -324,6 +327,10 @@ code {
     height: 91%;
     background-color: rgb(242, 235, 202);
   }
+  .CommentBase-header {
+    padding-top: 1%;
+  }
+  .
   .CommentBase-header h1{
     font-size: 25px;
     color: rgb(16, 50, 111);
@@ -414,7 +421,9 @@ code {
     margin-top: 0;
     margin-left: 20%;
   }
- 
+  .MuiTypography-body1{
+    line-height: 1 !important;
+  }
   .cardTitle{
     font-size: 20px !important;
   }
@@ -628,6 +637,9 @@ code {
     margin-bottom: 3%;
     margin-top: 0;
     margin-left: 23%;
+  }
+  .MuiTypography-body1{
+    line-height: 1 !important;
   }
   .cardTitle{
     font-size: 20px !important;
